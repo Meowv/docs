@@ -53,7 +53,8 @@ module.exports = {
         ],
         sidebar: {
             '/aspnetcore/abp-blog/': [
-                "abp-cli"
+                "abp-cli",
+                "slim-and-run"
             ],
             '/python/': [
 

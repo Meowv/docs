@@ -55,7 +55,8 @@ module.exports = {
             '/aspnetcore/abp-blog/': [
                 "abp-cli",
                 "slim-and-run",
-                "beautify-with-swagger"
+                "beautify-with-swagger",
+                "ef-and-codefirst"
             ],
             '/python/': [
 

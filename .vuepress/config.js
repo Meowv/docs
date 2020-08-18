@@ -14,7 +14,7 @@ module.exports = {
         nav: [
             {
                 text: '🎈.NET Core',
-                link: '/aspnetcore/'
+                link: '/aspnetcore/abp-blog/'
             },
             {
                 text: '⚡Python',
@@ -30,8 +30,8 @@ module.exports = {
             }
         ],
         sidebar: {
-            '/aspnetcore/': [
-
+            '/aspnetcore/abp-blog/': [
+                "abp-cli"
             ],
             '/python/': [
 

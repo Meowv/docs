@@ -25,7 +25,7 @@ module.exports = {
     },
     themeConfig: {
         repo: 'meowv/docs',
-        repoLabel: '👍GitHub',
+        repoLabel: '⭐️GitHub',
         docsRepo: 'meowv/docs',
         docsDir: '/',
         editLinks: true,

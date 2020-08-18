@@ -42,7 +42,7 @@ abp cli是使用ABP框架启动新解决方案的最快方法，那么前提是�
 
 此时整个目录结构是这样婶的~
 
-```tree
+```csharp
 blog_tutorial
  ├── common.props
  ├── Meowv.Blog.sln
@@ -83,7 +83,7 @@ blog_tutorial
 - 修改项目名称Meowv.Blog.Web为Meowv.Blog.HttpApi.Hosting，为了完美同时也可以去修改一下文件夹的名称哦
 - 在解决方案中新建解决方案文件夹solution-items，然后编辑Meowv.Blog.sln文件，修改Meowv.Blog.Web为Meowv.Blog.HttpApi.Hosting，再新增以下代码
 
-```text
+```csharp
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{731730B9-645C-430A-AB05-3FC2BED63614}"
       ProjectSection(SolutionItems) = preProject
             .gitattributes = .gitattributes
@@ -97,7 +97,7 @@ EndProject
 
 现在整个项目变成了下面这个样子
 
-```tree
+```csharp
 blog_tutorial
  ├── common.props
  ├── LICENSE

@@ -1,0 +1,38 @@
+::-webkit-scrollbar {
+    width:5px;
+    height:5px;
+}
+::-webkit-scrollbar-thumb {
+    background-color:#46bd87;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color:#46bd87;
+}
+h1 {
+    background-image: -webkit-linear-gradient(left, #22c1c3, #fdbb2d 25%, #22c1c3 50%, #fdbb2d 75%, #22c1c3);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    -webkit-animation: gradient 4s infinite linear;
+    animation: gradient 4s infinite linear;
+}
+.description, .card h2 {
+    background-image: -webkit-linear-gradient(left, #fdbb2d, #22c1c3 25%, #fdbb2d 50%, #22c1c3 75%, #fdbb2d);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+     background-clip: text;
+    -webkit-background-size: 200% 100%;
+    background-size: 200% 100%;
+    -webkit-animation: gradient 4s infinite linear;
+    animation: gradient 4s infinite linear;
+}
+@keyframes gradient {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}

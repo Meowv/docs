@@ -4,7 +4,13 @@
   "description": "This is a personal document library for development work.",
   "main": "index.js",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "vuepress": "^1.5.3",
+    "@vuepress/plugin-active-header-links": "^1.5.3",
+    "@vuepress/plugin-back-to-top": "^1.5.3",
+    "@vuepress/plugin-medium-zoom": "^1.5.3",
+    "@vuepress/plugin-nprogress": "^1.5.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx vuepress dev",

@@ -1,0 +1,19 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "This is a personal document library for development work.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx vuepress dev",
+    "build": "npx vuepress build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meowv/docs.git"
+  },
+  "author": "阿星Plus",
+  "license": "MIT"
+}

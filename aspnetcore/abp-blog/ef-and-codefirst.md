@@ -573,7 +573,7 @@ namespace Meowv.Blog.EntityFrameworkCore.DbMigrations.EntityFrameworkCore
 
 键入命令：`Add-Migration Initial`,会发现报错啦，错误信息如下：
 
-```text
+```csharp
 Add-Migration : 无法将“Add-Migration”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。请检查名称的拼写，如果包括路径，请确保路径正确，然后再试一次。
 所在位置 行:1 字符: 1
 + Add-Migration Initial

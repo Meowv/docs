@@ -56,7 +56,8 @@ module.exports = {
                 "abp-cli",
                 "slim-and-run",
                 "beautify-with-swagger",
-                "ef-and-codefirst"
+                "ef-and-codefirst",
+                "repositories-and-crud"
             ],
             '/python/': [
 

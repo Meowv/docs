@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>统一规范API，包装返回模型 | 📖Documents</title>
+    <meta name="generator" content="VuePress 1.5.3">
+    
+    <meta name="description" content="This is a personal document library for development work">
+    <link rel="preload" href="/assets/css/0.styles.00c7ef2c.css" as="style"><link rel="preload" href="/assets/js/app.cfb46446.js" as="script"><link rel="preload" href="/assets/js/2.630891cd.js" as="script"><link rel="preload" href="/assets/js/16.a2bdccb2.js" as="script"><link rel="prefetch" href="/assets/js/10.68dd59d6.js"><link rel="prefetch" href="/assets/js/11.3ebe083d.js"><link rel="prefetch" href="/assets/js/12.a3d10a87.js"><link rel="prefetch" href="/assets/js/13.c93398db.js"><link rel="prefetch" href="/assets/js/14.43cbdd1b.js"><link rel="prefetch" href="/assets/js/15.5fe98a22.js"><link rel="prefetch" href="/assets/js/17.c22eee2f.js"><link rel="prefetch" href="/assets/js/18.d40a232f.js"><link rel="prefetch" href="/assets/js/19.962a09ac.js"><link rel="prefetch" href="/assets/js/20.b053081d.js"><link rel="prefetch" href="/assets/js/21.1c572407.js"><link rel="prefetch" href="/assets/js/22.c9556641.js"><link rel="prefetch" href="/assets/js/23.6e4c10d2.js"><link rel="prefetch" href="/assets/js/24.bd73bf88.js"><link rel="prefetch" href="/assets/js/3.c702c970.js"><link rel="prefetch" href="/assets/js/4.7b7fb212.js"><link rel="prefetch" href="/assets/js/5.9b56eb68.js"><link rel="prefetch" href="/assets/js/6.965dfa17.js"><link rel="prefetch" href="/assets/js/7.f196337c.js"><link rel="prefetch" href="/assets/js/8.c3db1fd5.js"><link rel="prefetch" href="/assets/js/9.60385b90.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.00c7ef2c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">📖Documents</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/aspnetcore/abp-blog/" class="nav-link router-link-active">
+  ⚡.NET Core
+</a></div><div class="nav-item"><a href="/python/" class="nav-link">
+  🎈Python
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link">
+  ✔技术文章
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  ✨总结
+</a></div> <a href="https://github.com/meowv/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    ⭐️GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/aspnetcore/abp-blog/" class="nav-link router-link-active">
+  ⚡.NET Core
+</a></div><div class="nav-item"><a href="/python/" class="nav-link">
+  🎈Python
+</a></div><div class="nav-item"><a href="/articles/" class="nav-link">
+  ✔技术文章
+</a></div><div class="nav-item"><a href="/summary/" class="nav-link">
+  ✨总结
+</a></div> <a href="https://github.com/meowv/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    ⭐️GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/aspnetcore/abp-blog/abp-cli.html" class="sidebar-link">使用 abp cli 搭建项目</a></li><li><a href="/aspnetcore/abp-blog/slim-and-run.html" class="sidebar-link">给项目瘦身，让它跑起来</a></li><li><a href="/aspnetcore/abp-blog/beautify-with-swagger.html" class="sidebar-link">完善与美化，Swagger登场</a></li><li><a href="/aspnetcore/abp-blog/ef-and-codefirst.html" class="sidebar-link">数据访问和代码优先</a></li><li><a href="/aspnetcore/abp-blog/repositories-and-crud.html" class="sidebar-link">自定义仓储之增删改查</a></li><li><a href="/aspnetcore/abp-blog/return-api.html" aria-current="page" class="active sidebar-link">统一规范API，包装返回模型</a></li><li><a href="/aspnetcore/abp-blog/swagger-group-describe-authorize.html" class="sidebar-link">再说Swagger，分组、描述、小绿锁</a></li><li><a href="/aspnetcore/abp-blog/generate-jwt-with-github.html" class="sidebar-link">接入GitHub，用JWT保护你的API</a></li><li><a href="/aspnetcore/abp-blog/exception-and-logging.html" class="sidebar-link">异常处理和日志记录</a></li><li><a href="/aspnetcore/abp-blog/use-redis-cachedatas.html" class="sidebar-link">使用Redis缓存数据</a></li><li><a href="/aspnetcore/abp-blog/task-processing-with-hangfire.html" class="sidebar-link">集成Hangfire实现定时任务处理</a></li><li><a href="/aspnetcore/abp-blog/object-mapping-with-automapper.html" class="sidebar-link">用AutoMapper搞定对象映射</a></li><li><a href="/aspnetcore/abp-blog/task-processing-bestpractice-1.html" class="sidebar-link">定时任务最佳实战（一）</a></li><li><a href="/aspnetcore/abp-blog/task-processing-bestpractice-2.html" class="sidebar-link">定时任务最佳实战（二）</a></li><li><a href="/aspnetcore/abp-blog/task-processing-bestpractice-3.html" class="sidebar-link">定时任务最佳实战（三）</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="统一规范api，包装返回模型"><a href="#统一规范api，包装返回模型" class="header-anchor">#</a> 统一规范API，包装返回模型</h1> <p>上一篇文章使用自定义仓储完成了简单的增删改查案例，有心的同学可以看出，我们的返回参数一塌糊涂，显得很不友好。</p> <p>在实际开发过程中，每个公司可能不尽相同，但都大同小异，我们的返回数据都是包裹在一个公共的模型下面的，而不是直接返回最终数据，在返回参数中，显示出当前请求的时间戳，是否请求成功，如果错误那么错误的消息是什么，状态码(状态码可以是我们自己定义的值)等等。可能显得很繁琐，没必要，但这样做的好处毋庸置疑，除了美化了我们的API之外，也方便了前端同学的数据处理。</p> <p>我们将统一的返回模型放在<code>.ToolKits</code>层中，之前说过这里主要是公共的工具类、扩展方法。</p> <p>新建一个Base文件夹，添加响应实体类<code>ServiceResult.cs</code>，在Enum文件夹下单独定义一个<code>ServiceResultCode</code>响应码枚举，0/1。分别代表 成功和失败。</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//ServiceResultCode.cs</span>
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Enum</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary&gt;</span>
+    <span class="token comment">/// 服务层响应码枚举</span>
+    <span class="token comment">/// &lt;/summary&gt;</span>
+    <span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">ServiceResultCode</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 成功</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        Succeed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 失败</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        Failed <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br></div></div><div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//ServiceResult.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Enum</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary&gt;</span>
+    <span class="token comment">/// 服务层响应实体</span>
+    <span class="token comment">/// &lt;/summary&gt;</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceResult</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应码</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name">ServiceResultCode</span> Code <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应信息</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Message <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 成功</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">bool</span></span> Success <span class="token operator">=&gt;</span> Code <span class="token operator">==</span> ServiceResultCode<span class="token punctuation">.</span>Succeed<span class="token punctuation">;</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 时间戳(毫秒)</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">long</span></span> Timestamp <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> DateTimeOffset<span class="token punctuation">.</span>UtcNow<span class="token punctuation">.</span><span class="token function">ToUnixTimeMilliseconds</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应成功</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;message&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;data&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;returns&gt;&lt;/returns&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">IsSuccess</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> message <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+            Code <span class="token operator">=</span> ServiceResultCode<span class="token punctuation">.</span>Succeed<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应失败</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;message&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;data&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;returns&gt;&lt;/returns&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">IsFailed</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> message <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+            Code <span class="token operator">=</span> ServiceResultCode<span class="token punctuation">.</span>Failed<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应失败</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;exexception&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;data&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;returns&gt;&lt;/returns&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">IsFailed</span><span class="token punctuation">(</span><span class="token class-name">Exception</span> exception<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Message <span class="token operator">=</span> exception<span class="token punctuation">.</span>InnerException<span class="token punctuation">?.</span>StackTrace<span class="token punctuation">;</span>
+            Code <span class="token operator">=</span> ServiceResultCode<span class="token punctuation">.</span>Failed<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br></div></div><p>可以看到，还定义了 string 类型的 Message，bool 类型的 Success，Success取决于<code>Code == ServiceResultCode.Succeed</code>的结果。还有一个当前的时间戳Timestamp。</p> <p>其中还有<code>IsSuccess(...)</code>和<code>IsFailed(...)</code>方法，当我们成功返回数据或者当系统出错或者参数异常的时候执行，这一点也不难理解吧。</p> <p>这个返回模型暂时只支持无需返回参数的api使用，还需要扩展一下，当我们需要返回其它各种复杂类型的数据就行不通了。所以还需要添加一个支持泛型的返回模型，新建模型类：<code>ServiceResultOfT.cs</code>，这里的T就是我们的返回结果，然后继承我们的ServiceResult，指定T为class。并重新编写一个<code>IsSuccess(...)</code>方法，代码如下：</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//ServiceResultOfT.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Enum</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary&gt;</span>
+    <span class="token comment">/// 服务层响应实体(泛型)</span>
+    <span class="token comment">/// &lt;/summary&gt;</span>
+    <span class="token comment">/// &lt;typeparam name=&quot;T&quot;&gt;&lt;/typeparam&gt;</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ServiceResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">ServiceResult</span></span> <span class="token keyword">where</span> <span class="token class-name">T</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token keyword">class</span></span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 返回结果</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name">T</span> Result <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 响应成功</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;result&quot;&gt;&lt;/param&gt;</span>
+        <span class="token comment">/// &lt;param name=&quot;message&quot;&gt;&lt;/param&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">IsSuccess</span><span class="token punctuation">(</span><span class="token class-name">T</span> result <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> message <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Message <span class="token operator">=</span> message<span class="token punctuation">;</span>
+            Code <span class="token operator">=</span> ServiceResultCode<span class="token punctuation">.</span>Succeed<span class="token punctuation">;</span>
+            Result <span class="token operator">=</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br></div></div><p>此时针对无需返回参数和需要返回参数的api都可以满足要求了。但是还有一种就没办法了，那就是带分页的数据，我们都应该知道想要分页，数据总数肯定是必不可少的。</p> <p>所以此时还需要扩展一个分页的响应实体，当我们使用的时候，直接将分页响应实体作为上面写的<code>ServiceResult&lt;T&gt;</code>中的T参数，即可满足需求。</p> <p>新建文件夹Paged，添加总数接口<code>IHasTotalCount</code>、返回结果列表接口<code>IListResult</code></p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//IHasTotalCount.cs</span>
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Paged</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IHasTotalCount</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 总数</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token return-type class-name"><span class="token keyword">int</span></span> Total <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//IListResult.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Paged</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IListResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 返回结果</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token return-type class-name">IReadOnlyList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Item <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p><code>IListResult&lt;T&gt;</code>接受一个参数，并将其指定为<code>IReadOnlyList</code>返回。</p> <p>现在来实现<code>IListResult</code>接口，新建<code>ListResult</code>实现类，继承<code>IListResult</code>，在构造函数中为其赋值，代码如下：</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//ListResult.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Paged</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ListResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IListResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span></span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name">IReadOnlyList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> item<span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token return-type class-name">IReadOnlyList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> Item
+        <span class="token punctuation">{</span>
+            <span class="token keyword">get</span> <span class="token operator">=&gt;</span> item <span class="token operator">??</span> <span class="token punctuation">(</span>item <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">List<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">set</span> <span class="token operator">=&gt;</span> item <span class="token operator">=</span> <span class="token keyword">value</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token function">ListResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token function">ListResult</span><span class="token punctuation">(</span><span class="token class-name">IReadOnlyList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> item<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Item <span class="token operator">=</span> item<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>最后新建我们的分页响应实体接口：<code>IPagedList</code>和分页响应实体实现类：<code>PagedList</code>，它同时也要接受一个泛型参数 T。</p> <p>接口继承了<code>IListResult&lt;T&gt;</code>和<code>IHasTotalCount</code>，实现类继承<code>ListResult&lt;T&gt;</code>和<code>IPagedList&lt;T&gt;</code>，在构造函数中为其赋值。代码如下：</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//IPagedList.cs</span>
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Paged</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IPagedList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IListResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> <span class="token class-name">IHasTotalCount</span></span>
+    <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">//PagedList.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base<span class="token punctuation">.</span>Paged</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Collections<span class="token punctuation">.</span>Generic</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">/// &lt;summary&gt;</span>
+    <span class="token comment">/// 分页响应实体</span>
+    <span class="token comment">/// &lt;/summary&gt;</span>
+    <span class="token comment">/// &lt;typeparam name=&quot;T&quot;&gt;&lt;/typeparam&gt;</span>
+    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PagedList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">ListResult<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span><span class="token punctuation">,</span> <span class="token class-name">IPagedList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span></span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/// &lt;summary&gt;</span>
+        <span class="token comment">/// 总数</span>
+        <span class="token comment">/// &lt;/summary&gt;</span>
+        <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">int</span></span> Total <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token function">PagedList</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token function">PagedList</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> total<span class="token punctuation">,</span> <span class="token class-name">IReadOnlyList<span class="token punctuation">&lt;</span>T<span class="token punctuation">&gt;</span></span> result<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Total <span class="token operator">=</span> total<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br></div></div><p>到这里我们的返回模型就圆满了，看一下此时下我们的项目层级目录。</p> <p><img src="/assets/img/return-api-01.55f32825.png" alt=" "></p> <p>接下来去实践一下，修改我们之前创建的增删改查接口的返回参数。</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//IBlogService.cs</span>
+<span class="token keyword">using</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>Application<span class="token punctuation">.</span>Contracts<span class="token punctuation">.</span>Blog</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>ToolKits<span class="token punctuation">.</span>Base</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Threading<span class="token punctuation">.</span>Tasks</span><span class="token punctuation">;</span>
+
+<span class="token keyword">namespace</span> <span class="token namespace">Meowv<span class="token punctuation">.</span>Blog<span class="token punctuation">.</span>Application<span class="token punctuation">.</span>Blog</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IBlogService</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//Task&lt;bool&gt; InsertPostAsync(PostDto dto);</span>
+        <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">InsertPostAsync</span><span class="token punctuation">(</span><span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Task&lt;bool&gt; DeletePostAsync(int id);</span>
+        <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&gt;</span></span> <span class="token function">DeletePostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Task&lt;bool&gt; UpdatePostAsync(int id, PostDto dto);</span>
+        <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">UpdatePostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">,</span> <span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//Task&lt;PostDto&gt; GetPostAsync(int id);</span>
+        <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span>PostDto<span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">GetPostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div><p>接口全部为异步方式，用<code>ServiceResult</code>包裹作为返回模型，添加和更新T参数为string类型，删除就直接不返回结果，然后查询为：<code>ServiceResult&lt;PostDto&gt;</code>，再看一下实现类：</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//BlogService.cs</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">InsertPostAsync</span><span class="token punctuation">(</span><span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name"><span class="token keyword">var</span></span> entity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Post</span>
+            <span class="token punctuation">{</span>
+                Title <span class="token operator">=</span> dto<span class="token punctuation">.</span>Title<span class="token punctuation">,</span>
+                Author <span class="token operator">=</span> dto<span class="token punctuation">.</span>Author<span class="token punctuation">,</span>
+                Url <span class="token operator">=</span> dto<span class="token punctuation">.</span>Url<span class="token punctuation">,</span>
+                Html <span class="token operator">=</span> dto<span class="token punctuation">.</span>Html<span class="token punctuation">,</span>
+                Markdown <span class="token operator">=</span> dto<span class="token punctuation">.</span>Markdown<span class="token punctuation">,</span>
+                CategoryId <span class="token operator">=</span> dto<span class="token punctuation">.</span>CategoryId<span class="token punctuation">,</span>
+                CreationTime <span class="token operator">=</span> dto<span class="token punctuation">.</span>CreationTime
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+            <span class="token class-name"><span class="token keyword">var</span></span> post <span class="token operator">=</span> <span class="token keyword">await</span> _postRepository<span class="token punctuation">.</span><span class="token function">InsertAsync</span><span class="token punctuation">(</span>entity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>post <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                result<span class="token punctuation">.</span><span class="token function">IsFailed</span><span class="token punctuation">(</span><span class="token string">&quot;添加失败&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            result<span class="token punctuation">.</span><span class="token function">IsSuccess</span><span class="token punctuation">(</span><span class="token string">&quot;添加成功&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&gt;</span></span> <span class="token function">DeletePostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ServiceResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">await</span> _postRepository<span class="token punctuation">.</span><span class="token function">DeleteAsync</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">UpdatePostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">,</span> <span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name"><span class="token keyword">var</span></span> post <span class="token operator">=</span> <span class="token keyword">await</span> _postRepository<span class="token punctuation">.</span><span class="token function">GetAsync</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>post <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                result<span class="token punctuation">.</span><span class="token function">IsFailed</span><span class="token punctuation">(</span><span class="token string">&quot;文章不存在&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            post<span class="token punctuation">.</span>Title <span class="token operator">=</span> dto<span class="token punctuation">.</span>Title<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>Author <span class="token operator">=</span> dto<span class="token punctuation">.</span>Author<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>Url <span class="token operator">=</span> dto<span class="token punctuation">.</span>Url<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>Html <span class="token operator">=</span> dto<span class="token punctuation">.</span>Html<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>Markdown <span class="token operator">=</span> dto<span class="token punctuation">.</span>Markdown<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>CategoryId <span class="token operator">=</span> dto<span class="token punctuation">.</span>CategoryId<span class="token punctuation">;</span>
+            post<span class="token punctuation">.</span>CreationTime <span class="token operator">=</span> dto<span class="token punctuation">.</span>CreationTime<span class="token punctuation">;</span>
+
+            <span class="token keyword">await</span> _postRepository<span class="token punctuation">.</span><span class="token function">UpdateAsync</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+            result<span class="token punctuation">.</span><span class="token function">IsSuccess</span><span class="token punctuation">(</span><span class="token string">&quot;更新成功&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span>PostDto<span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">GetPostAsync</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token class-name"><span class="token keyword">var</span></span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">ServiceResult<span class="token punctuation">&lt;</span>PostDto<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token class-name"><span class="token keyword">var</span></span> post <span class="token operator">=</span> <span class="token keyword">await</span> _postRepository<span class="token punctuation">.</span><span class="token function">GetAsync</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>post <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                result<span class="token punctuation">.</span><span class="token function">IsFailed</span><span class="token punctuation">(</span><span class="token string">&quot;文章不存在&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token class-name"><span class="token keyword">var</span></span> dto <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">PostDto</span>
+            <span class="token punctuation">{</span>
+                Title <span class="token operator">=</span> post<span class="token punctuation">.</span>Title<span class="token punctuation">,</span>
+                Author <span class="token operator">=</span> post<span class="token punctuation">.</span>Author<span class="token punctuation">,</span>
+                Url <span class="token operator">=</span> post<span class="token punctuation">.</span>Url<span class="token punctuation">,</span>
+                Html <span class="token operator">=</span> post<span class="token punctuation">.</span>Html<span class="token punctuation">,</span>
+                Markdown <span class="token operator">=</span> post<span class="token punctuation">.</span>Markdown<span class="token punctuation">,</span>
+                CategoryId <span class="token operator">=</span> post<span class="token punctuation">.</span>CategoryId<span class="token punctuation">,</span>
+                CreationTime <span class="token operator">=</span> post<span class="token punctuation">.</span>CreationTime
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+            result<span class="token punctuation">.</span><span class="token function">IsSuccess</span><span class="token punctuation">(</span>dto<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br></div></div><p>当成功时，调用<code>IsSuccess(...)</code>方法，当失败时，调用<code>IsFailed(...)</code>方法。最终我们返回的是<code>new ServiceResult()</code>或者<code>new ServiceResult&lt;T&gt;()</code>对象。</p> <p>同时不要忘记在Controller中也需要修改一下，如下：</p> <div class="language-csharp line-numbers-mode"><pre class="language-csharp"><code><span class="token comment">//BlogController.cs</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">InsertPostAsync</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">FromBody</span></span><span class="token punctuation">]</span> <span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span>
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&gt;</span></span> <span class="token function">DeletePostAsync</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span> <span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span>
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">UpdatePostAsync</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span> <span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">FromBody</span></span><span class="token punctuation">]</span> <span class="token class-name">PostDto</span> dto<span class="token punctuation">)</span>
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+        <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>ServiceResult<span class="token punctuation">&lt;</span>PostDto<span class="token punctuation">&gt;</span><span class="token punctuation">&gt;</span></span> <span class="token function">GetPostAsync</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">Required</span></span><span class="token punctuation">]</span> <span class="token class-name"><span class="token keyword">int</span></span> id<span class="token punctuation">)</span>
+        <span class="token range operator">..</span><span class="token punctuation">.</span>
+<span class="token range operator">..</span><span class="token punctuation">.</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p>此时再去我们的Swagger文档发起请求，这里我们调用一下查询接口看看返回的样子，看看效果吧。</p> <p><img src="/assets/img/return-api-02.f3fd21f5.png" alt=" "></p> <p>本篇内容比较简单，主要是包装我们的api，让返回结果显得比较正式一点。那么，你学会了吗？😁😁😁</p></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/meowv/docs/edit/master//aspnetcore/abp-blog/return-api.md" target="_blank" rel="noopener noreferrer">在 GitHub 上编辑此页</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">8/19/2020, 4:17:58 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/aspnetcore/abp-blog/repositories-and-crud.html" class="prev">
+        自定义仓储之增删改查
+      </a></span> <span class="next"><a href="/aspnetcore/abp-blog/swagger-group-describe-authorize.html">
+        再说Swagger，分组、描述、小绿锁
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/assets/js/app.cfb46446.js" defer></script><script src="/assets/js/2.630891cd.js" defer></script><script src="/assets/js/16.a2bdccb2.js" defer></script>
+  </body>
+</html>

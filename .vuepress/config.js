@@ -123,7 +123,12 @@ module.exports = {
 
             ],
             '/summary/': [
-
+                "2019-summary",
+                "2018-summary",
+                "2017-summary",
+                "2016-summary",
+                "internship-month-summary",
+                "internship-summary"
             ]
         },
     }

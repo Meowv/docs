@@ -57,7 +57,8 @@ module.exports = {
                 "beautify-with-swagger",
                 "ef-and-codefirst",
                 "repositories-and-crud",
-                "return-api"
+                "return-api",
+                "swagger-group-describe-authorize"
             ],
             '/python/': [
 

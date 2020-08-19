@@ -2,23 +2,38 @@ module.exports = {
     title: '📖Documents',
     description: 'This is a personal document library for development work',
     base: '/',
-    cache: false,
     host: '127.0.0.1',
     port: '90',
     head: [],
     plugins: [
-        '@vuepress/back-to-top',
-        '@vuepress/nprogress',
-        '@vuepress/active-header-links', {
-            sidebarLinkSelector: '.sidebar-link',
-            headerAnchorSelector: '.header-anchor'
-        },
-        '@vuepress/medium-zoom', {
-            selector: 'img.zoom-custom-imgs',
-            options: {
-                margin: 16
+        [
+            '@vuepress/back-to-top'
+        ],
+        [
+            '@vuepress/nprogress'
+        ],
+        [
+            'vuepress-plugin-code-copy', {
+                align: "top",
+                color: "#5a9600",
+                backgroundColor: "#5a9600",
+                successText: "复制成功"
             }
-        }
+        ],
+        [
+            '@vuepress/active-header-links', {
+                sidebarLinkSelector: '.sidebar-link',
+                headerAnchorSelector: '.header-anchor'
+            }
+        ],
+        [
+            '@vuepress/medium-zoom', {
+                selector: 'img.zoom-custom-imgs',
+                options: {
+                    margin: 16
+                }
+            }
+        ]
     ],
     markdown: {
         lineNumbers: true

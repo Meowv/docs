@@ -58,7 +58,8 @@ module.exports = {
                 "ef-and-codefirst",
                 "repositories-and-crud",
                 "return-api",
-                "swagger-group-describe-authorize"
+                "swagger-group-describe-authorize",
+                "generate-jwt-with-github",
             ],
             '/python/': [
 

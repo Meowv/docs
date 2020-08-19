@@ -60,6 +60,13 @@ module.exports = {
                 "return-api",
                 "swagger-group-describe-authorize",
                 "generate-jwt-with-github",
+                "exception-and-logging",
+                "use-redis-cachedatas",
+                "task-processing-with-hangfire",
+                "object-mapping-with-automapper",
+                "task-processing-bestpractice-1",
+                "task-processing-bestpractice-2",
+                "task-processing-bestpractice-3"
             ],
             '/python/': [
 

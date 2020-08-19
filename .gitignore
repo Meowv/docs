@@ -5,8 +5,5 @@ _book/
 *.swp
 *.edx
 .DS_Store
-
 node_modules/
-package-lock.json
-
 .vuepress/dist

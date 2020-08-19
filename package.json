@@ -6,6 +6,7 @@
   "dependencies": {
     "@vssue/api-github-v3": "^1.4.4",
     "@vssue/vuepress-plugin-vssue": "^1.4.6",
+    "moment": "^2.27.0",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-reading-progress": "^1.0.10"
   },

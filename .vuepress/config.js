@@ -36,6 +36,15 @@ module.exports = {
                 backgroundColor: "#5a9600",
                 successText: "复制成功"
             }
+        ],
+        [
+            '@vuepress/last-updated', {
+                transformer: (timestamp, lang) => {
+                    const moment = require('moment');
+                    moment.locale(lang);
+                    return moment(timestamp).fromNow();
+                }
+            }
         ]
     ],
     markdown: {

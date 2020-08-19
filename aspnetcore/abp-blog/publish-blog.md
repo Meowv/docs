@@ -49,7 +49,7 @@
 
 在 centos 下安装 supervisor 也很简单，直接贴几行代码，照着执行即可。
 
-```ini
+```shell
 yum install python-setuptools
 
 easy_install supervisor
@@ -84,7 +84,7 @@ stdout_logfile=/var/log/api2.meowv.com.out.log #输出日志文件指向目录
 
 每行都带有注释，很清楚知道是干啥用的，顺便贴几条常用的命令：
 
-```ini
+```shell
 supervisorctl start program_name   #启动某个进程(program_name=配置的进程名称)
 supervisorctl stop program_name    #停止某一进程
 supervisorctl reload               #重新启动配置中的所有程序

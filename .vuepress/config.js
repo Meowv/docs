@@ -27,6 +27,14 @@ module.exports = {
                 clientId: 'dfcb3e4078504d07ccbf',
                 clientSecret: 'f182d64e6d5063e0b137c0d039d4a99a5cebda00',
             }
+        ],
+        [
+            "vuepress-plugin-code-copy", {
+                align: "top",
+                color: "#5a9600",
+                backgroundColor: "#5a9600",
+                successText: "复制成功"
+            }
         ]
     ],
     markdown: {

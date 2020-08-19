@@ -10,6 +10,11 @@ module.exports = {
         '@vuepress/nprogress',
         'vuepress-plugin-smooth-scroll',
         'reading-progress',
+        [
+            '@vuepress/search', {
+                searchMaxSuggestions: 10
+            }
+        ],
         '@vuepress/active-header-links', {
             sidebarLinkSelector: '.sidebar-link',
             headerAnchorSelector: '.header-anchor'

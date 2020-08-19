@@ -9,6 +9,7 @@ module.exports = {
         '@vuepress/back-to-top',
         '@vuepress/nprogress',
         'vuepress-plugin-smooth-scroll',
+        'reading-progress',
         '@vuepress/active-header-links', {
             sidebarLinkSelector: '.sidebar-link',
             headerAnchorSelector: '.header-anchor'

@@ -8,6 +8,7 @@ module.exports = {
     plugins: [
         '@vuepress/back-to-top',
         '@vuepress/nprogress',
+        'vuepress-plugin-smooth-scroll',
         '@vuepress/active-header-links', {
             sidebarLinkSelector: '.sidebar-link',
             headerAnchorSelector: '.header-anchor'
@@ -17,7 +18,16 @@ module.exports = {
             options: {
                 margin: 16
             }
-        }
+        },
+        [
+            '@vssue/vuepress-plugin-vssue', {
+                platform: 'github',
+                owner: 'Meowv',
+                repo: 'docs',
+                clientId: 'dfcb3e4078504d07ccbf',
+                clientSecret: 'f182d64e6d5063e0b137c0d039d4a99a5cebda00',
+            }
+        ]
     ],
     markdown: {
         lineNumbers: true

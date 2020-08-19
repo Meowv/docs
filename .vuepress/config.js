@@ -57,7 +57,8 @@ module.exports = {
                 "slim-and-run",
                 "beautify-with-swagger",
                 "ef-and-codefirst",
-                "repositories-and-crud"
+                "repositories-and-crud",
+                "return-api"
             ],
             '/python/': [
 

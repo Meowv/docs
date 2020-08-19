@@ -14,6 +14,7 @@ jobs:
     - run: npm ci
     - run: npm install vuepress
     - run: npm run build
+    - run: cp CNAME .vuepress/dist/
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0

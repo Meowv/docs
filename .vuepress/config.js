@@ -1,7 +1,7 @@
 module.exports = {
     title: '📖Documents',
     description: 'This is a personal document library for development work',
-    base: '/docs/',
+    base: '/',
     cache: false,
     host: '127.0.0.1',
     port: '90',

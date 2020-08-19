@@ -95,7 +95,7 @@ else
 
 `Categories.razor`是标签列表页面，和分类列表HTML结构差不多一样的，除了返回类型和接口地址不一样，将上面代码复制过来改改即可。
 
-```charp
+```csharp
 @code{
     /// <summary>
     /// tags

@@ -85,7 +85,22 @@ module.exports = {
                 "object-mapping-with-automapper",
                 "task-processing-bestpractice-1",
                 "task-processing-bestpractice-2",
-                "task-processing-bestpractice-3"
+                "task-processing-bestpractice-3",
+                "blog-api-bestpractice-1",
+                "blog-api-bestpractice-2",
+                "blog-api-bestpractice-3",
+                "blog-api-bestpractice-4",
+                "blog-api-bestpractice-5",
+                "blazor-bestpractice-1",
+                "blazor-bestpractice-2",
+                "blazor-bestpractice-3",
+                "blazor-bestpractice-4",
+                "blazor-bestpractice-5",
+                "blazor-bestpractice-6",
+                "blazor-bestpractice-7",
+                "blazor-bestpractice-8",
+                "blazor-bestpractice-9",
+                "publish-blog"
             ],
             '/python/': [
 

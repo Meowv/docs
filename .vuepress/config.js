@@ -54,7 +54,12 @@ module.exports = {
         nav: [
             {
                 text: '⚡.NET Core',
-                link: '/aspnetcore/abp-blog/'
+                items: [
+                    {
+                        text: '基于 abp vNext 和 .NET Core 开发博客项目',
+                        link: '/aspnetcore/abp-blog/'
+                    }
+                ]
             },
             {
                 text: '🎈Python',

@@ -208,6 +208,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                'COVID-19-battle-summary',
                 "2019-summary",
                 "2018-summary",
                 "2017-summary",

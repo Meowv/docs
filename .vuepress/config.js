@@ -194,6 +194,8 @@ module.exports = {
                 {
                     title: 'Web',
                     children: [
+                        'web/http-content-type',
+                        'web/html-escape-characters',
                         'web/js-minimize-code'
                     ]
                 },

@@ -167,6 +167,7 @@ module.exports = {
             '/articles/': [
                 {
                     title: '.NET Core',
+                    collapsable: false,
                     children: [
                         'dotnetcore/mta-package',
                         'dotnetcore/operate-git-auto-publish-to-github',
@@ -176,12 +177,14 @@ module.exports = {
                 },
                 {
                     title: 'Blazor',
+                    collapsable: false,
                     children: [
                         'blazor/gomoku-games-based-on-blazor'
                     ]
                 },
                 {
                     title: 'Storage',
+                    collapsable: false,
                     children: [
                         'storage/execute-big-sql',
                         'storage/cursor-loop-processing-data',
@@ -193,6 +196,7 @@ module.exports = {
                 },
                 {
                     title: 'Web',
+                    collapsable: false,
                     children: [
                         'web/http-content-type',
                         'web/html-escape-characters',
@@ -203,8 +207,9 @@ module.exports = {
                 },
                 {
                     title: 'Other',
+                    collapsable: false,
                     children: [
-                        'othoer/batch-rename-with-powershell',
+                        'other/batch-rename-with-powershell',
                         'other/git-commit-emojis',
                         'other/git-scripts',
                         'other/revoke-wechart-msg-patcher',

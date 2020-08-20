@@ -183,6 +183,9 @@ module.exports = {
                 {
                     title: 'Storage',
                     children: [
+                        'storage/execute-big-sql',
+                        'storage/cursor-loop-processing-data',
+                        'storage/sql-to-model',
                         'storage/mysql-install',
                         'storage/mongodb-shell',
                         'storage/quick-start-with-redis'

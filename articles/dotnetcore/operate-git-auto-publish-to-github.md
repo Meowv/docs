@@ -4,7 +4,7 @@
 
 ## 安装项目模板
 
-```bash
+```shell
 dotnet new --install "Microsoft.DotNet.Web.ProjectTemplates.3.0"
 dotnet new worker
 ```
@@ -13,7 +13,7 @@ dotnet new worker
 
 直接使用 .NET CLI 创建一个 Work Service 的项目
 
-```text
+```shell
 dotnet new worker -o AutomaticPush
 ```
 

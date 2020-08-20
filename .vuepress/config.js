@@ -81,11 +81,11 @@ module.exports = {
             },
             {
                 text: '🔖技术文章',
-                link: '/articles/',
+                link: '/articles/'
             },
             {
                 text: '🎉总结',
-                link: '/summary/',
+                link: '/summary/'
             }
         ],
         sidebar: {
@@ -233,7 +233,7 @@ module.exports = {
                     title: 'Git',
                     children: [
                         'git/git-commit-emojis',
-                        'git/git-scripts',
+                        'git/git-scripts'
                     ]
                 },
                 {
@@ -266,6 +266,6 @@ module.exports = {
                 "internship-month-summary",
                 "internship-summary"
             ]
-        },
+        }
     }
 }

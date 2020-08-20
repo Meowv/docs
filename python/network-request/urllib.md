@@ -112,7 +112,7 @@ print(resp.read()
 
 #### cookie的格式
 
-```text
+```shell
 Set-Cookie: NAME=VALUE；Expires/Max-age=DATE；Path=PATH；Domain=DOMAIN_NAME；SECURE
 ```
 

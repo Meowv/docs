@@ -183,6 +183,8 @@ module.exports = {
                 {
                     title: 'Storage',
                     children: [
+                        'storage/mysql-install',
+                        'storage/mongodb-shell',
                         'storage/quick-start-with-redis'
                     ]
                 },

@@ -5,3 +5,5 @@
 项目开源地址：<https://github.com/Meowv/Blog>
 
 If you liked Blog project or if it helped you, please give a star ⭐️ for this repository. 👍👍👍
+
+<Vssue :title="$title" />

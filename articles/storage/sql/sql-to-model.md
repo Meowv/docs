@@ -1,4 +1,4 @@
-# SqlServer利用SQL生成模型实体类
+# SqlServer 利用SQL生成模型实体类
 
 ```sql
 declare @TableName sysname = 'TableName'

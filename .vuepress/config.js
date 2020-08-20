@@ -210,6 +210,7 @@ module.exports = {
                         {
                             title: 'SqlServer',
                             children: [
+                                'storage/sql/query',
                                 'storage/sql/execute-big-sql',
                                 'storage/sql/cursor-loop-processing-data',
                                 'storage/sql/sql-to-model'
@@ -223,9 +224,7 @@ module.exports = {
                         },
                         {
                             title: 'SQLite',
-                            children: [
-                                'storage/sqlite/'
-                            ]
+                            path: 'storage/sqlite/'
                         }
                     ]
                 },

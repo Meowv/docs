@@ -1,4 +1,4 @@
-# SqlServer执行超大sql文件
+# SqlServer 执行超大sql文件
 
 ```sql
 osql -S 127.0.0.1 -U sa -P 123456 -i d:\test.sql

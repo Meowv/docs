@@ -183,12 +183,32 @@ module.exports = {
                 {
                     title: 'Storage',
                     children: [
-                        'storage/execute-big-sql',
-                        'storage/cursor-loop-processing-data',
-                        'storage/sql-to-model',
-                        'storage/mysql-install',
-                        'storage/mongodb-shell',
-                        'storage/quick-start-with-redis'
+                        {
+                            title: 'Redis',
+                            children: [
+                                'storage/redis/quick-start-with-redis'
+                            ]
+                        },
+                        {
+                            title: 'MongoDB',
+                            children: [
+                                'storage/mongodb/mongodb-shell'
+                            ]
+                        },
+                        {
+                            title: 'SqlServer',
+                            children: [
+                                'storage/sql/execute-big-sql',
+                                'storage/sql/cursor-loop-processing-data',
+                                'storage/sql/sql-to-model'
+                            ]
+                        },
+                        {
+                            title: 'MySQL',
+                            children: [
+                                'storage/mysql/mysql-install'
+                            ]
+                        }
                     ]
                 },
                 {

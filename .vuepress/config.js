@@ -197,6 +197,7 @@ module.exports = {
                         'web/http-content-type',
                         'web/html-escape-characters',
                         'web/ascii-table',
+                        'web/http-statuscode',
                         'web/js-minimize-code'
                     ]
                 },

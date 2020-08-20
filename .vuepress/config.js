@@ -192,6 +192,13 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Git',
+                    children: [
+                        'git/git-commit-emojis',
+                        'git/git-scripts',
+                    ]
+                },
+                {
                     title: 'Web',
                     children: [
                         'web/http-content-type',
@@ -205,8 +212,6 @@ module.exports = {
                     title: 'Other',
                     children: [
                         'other/batch-rename-with-powershell',
-                        'other/git-commit-emojis',
-                        'other/git-scripts',
                         'other/revoke-wechart-msg-patcher',
                         'other/visual-studio-2019-keys',
                         'other/windows10-run-android-emulator-bsod-solution',

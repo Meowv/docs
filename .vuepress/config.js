@@ -193,6 +193,25 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Message Queue',
+                    children: [
+                        'messagequeue/kafka',
+                        'messagequeue/rabbitmq'
+                    ]
+                },
+                {
+                    title: 'Grafana',
+                    children: [
+                        'grafana/'
+                    ]
+                },
+                {
+                    title: 'Zabbix',
+                    children: [
+                        'zabbix/'
+                    ]
+                },
+                {
                     title: 'Storage',
                     children: [
                         {

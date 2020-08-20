@@ -181,6 +181,12 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Storage',
+                    children: [
+                        'storage/quick-start-with-redis'
+                    ]
+                },
+                {
                     title: 'Other',
                     children: [
                         'other/revoke-wechart-msg-patcher',

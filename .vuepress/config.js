@@ -166,6 +166,15 @@ module.exports = {
             ],
             '/articles/': [
                 {
+                    title: '.NET Core',
+                    children: [
+                        'dotnetcore/mta-package',
+                        'dotnetcore/operate-git-auto-publish-to-github',
+                        'dotnetcore/epplus-wps-error',
+                        'dotnetcore/publish-to-centos'
+                    ]
+                },
+                {
                     title: 'Other',
                     children: [
                         'other/revoke-wechart-msg-patcher',

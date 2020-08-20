@@ -122,7 +122,47 @@ module.exports = {
                 "publish-blog"
             ],
             '/python/': [
-
+                {
+                    title: '网络请求',
+                    collapsable: false,
+                    children: [
+                        'network-request/http',
+                        'network-request/urllib',
+                        'network-request/requests'
+                    ]
+                },
+                {
+                    title: '数据提取',
+                    collapsable: false,
+                    children: [
+                        'data-extraction/xpath',
+                        'data-extraction/lxml',
+                        'data-extraction/beautifulsoup',
+                        'data-extraction/regex',
+                        'data-extraction/python-re'
+                    ]
+                },
+                {
+                    title: '数据存储',
+                    collapsable: false,
+                    children: [
+                        'data-storage/json',
+                        'data-storage/csv',
+                        'data-storage/pymysql',
+                        'data-storage/mongodb'
+                    ]
+                },
+                {
+                    title: '爬虫进阶',
+                    collapsable: false,
+                    children: [
+                        'spider/multithreading',
+                        'spider/selenium',
+                        'spider/tesseract',
+                        'spider/scrapy',
+                        'spider/scrapy-redis'
+                    ]
+                }
             ],
             '/articles/': [
 

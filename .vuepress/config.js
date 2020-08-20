@@ -67,7 +67,7 @@ module.exports = {
         smoothScroll: true,
         nav: [
             {
-                text: '⚡.NET Core',
+                text: '⚡系列文章',
                 items: [
                     {
                         text: '🚀基于 abp vNext 和 .NET Core 开发博客项目',
@@ -80,11 +80,11 @@ module.exports = {
                 link: '/python/'
             },
             {
-                text: '✔技术文章',
+                text: '🔖技术文章',
                 link: '/articles/',
             },
             {
-                text: '✨总结',
+                text: '🎉总结',
                 link: '/summary/',
             }
         ],
@@ -183,7 +183,6 @@ module.exports = {
                 {
                     title: 'Storage',
                     children: [
-                        'storage/git-scripts',
                         'storage/execute-big-sql',
                         'storage/cursor-loop-processing-data',
                         'storage/sql-to-model',
@@ -205,6 +204,8 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'other/git-commit-emojis',
+                        'other/git-scripts',
                         'other/revoke-wechart-msg-patcher',
                         'other/visual-studio-2019-keys',
                         'other/windows10-run-android-emulator-bsod-solution',

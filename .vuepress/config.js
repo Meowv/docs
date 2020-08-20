@@ -175,6 +175,12 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Blazor',
+                    children: [
+                        'blazor/gomoku-games-based-on-blazor'
+                    ]
+                },
+                {
                     title: 'Other',
                     children: [
                         'other/revoke-wechart-msg-patcher',

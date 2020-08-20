@@ -204,6 +204,7 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'othoer/batch-rename-with-powershell',
                         'other/git-commit-emojis',
                         'other/git-scripts',
                         'other/revoke-wechart-msg-patcher',

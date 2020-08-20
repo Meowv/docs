@@ -192,9 +192,9 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'JavaSceipt',
+                    title: 'Web',
                     children: [
-                        'js/minimize-code'
+                        'web/js-minimize-code'
                     ]
                 },
                 {

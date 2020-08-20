@@ -15,7 +15,7 @@
 
 发布自己写的后端API项目，必须要有属于自己的服务器，当然如果只是为了动动手玩玩就没啥必要了，因为 .NET Core 跨平台咱们可以任意选择，我这里演示将项目发布到 Linux 下。
 
-在这之前可以看一下我去年的一篇文章，[基于.NET Core开发的个人博客发布至CentOS小记](../../articles/dotnetcore/publish-to-centos.md) ，简单了解下。
+在这之前可以看一下我去年的一篇文章，[基于.NET Core开发的个人博客发布至CentOS小记](../../stack/dotnetcore/publish-to-centos.md) ，简单了解下。
 
 我的机器是很久之前撸羊毛的渣渣配置服务器，1G内存，1核CPU，1M带宽，不过对于我们这种小站来说没啥访问量，照样用。🤣🤣
 

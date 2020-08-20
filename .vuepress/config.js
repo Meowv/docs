@@ -80,8 +80,8 @@ module.exports = {
                 link: '/python/'
             },
             {
-                text: '🔖技术文章',
-                link: '/articles/'
+                text: '🍺技术栈',
+                link: '/stack/'
             },
             {
                 text: '🎉总结',
@@ -164,7 +164,7 @@ module.exports = {
                     ]
                 }
             ],
-            '/articles/': [
+            '/stack/': [
                 {
                     title: '.NET Core',
                     children: [
@@ -184,6 +184,12 @@ module.exports = {
                     title: 'Docker',
                     children: [
                         'docker/'
+                    ]
+                },
+                {
+                    title: 'Kubernetes',
+                    children: [
+                        'kubernetes/'
                     ]
                 },
                 {

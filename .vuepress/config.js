@@ -192,6 +192,12 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'JavaSceipt',
+                    children: [
+                        'js/minimize-code'
+                    ]
+                },
+                {
                     title: 'Other',
                     children: [
                         'other/revoke-wechart-msg-patcher',

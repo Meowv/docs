@@ -183,6 +183,7 @@ module.exports = {
                 {
                     title: 'Storage',
                     children: [
+                        'storage/git-scripts',
                         'storage/execute-big-sql',
                         'storage/cursor-loop-processing-data',
                         'storage/sql-to-model',

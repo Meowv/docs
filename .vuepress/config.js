@@ -70,7 +70,7 @@ module.exports = {
                 text: '⚡.NET Core',
                 items: [
                     {
-                        text: '基于 abp vNext 和 .NET Core 开发博客项目',
+                        text: '🚀基于 abp vNext 和 .NET Core 开发博客项目',
                         link: '/aspnetcore/abp-blog/'
                     }
                 ]
@@ -165,7 +165,15 @@ module.exports = {
                 }
             ],
             '/articles/': [
-
+                {
+                    title: 'Other',
+                    children: [
+                        'other/revoke-wechart-msg-patcher',
+                        'other/visual-studio-2019-keys',
+                        'other/windows10-run-android-emulator-bsod-solution',
+                        'other/remove-windows-shortcuts'
+                    ]
+                },
             ],
             '/summary/': [
                 "2019-summary",

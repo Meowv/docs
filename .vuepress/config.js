@@ -196,6 +196,7 @@ module.exports = {
                     children: [
                         'web/http-content-type',
                         'web/html-escape-characters',
+                        'web/ascii-table',
                         'web/js-minimize-code'
                     ]
                 },

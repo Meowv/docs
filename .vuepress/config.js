@@ -181,8 +181,20 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Docker',
+                    children: [
+                        'docker/'
+                    ]
+                },
+                {
                     title: 'Storage',
                     children: [
+                        {
+                            title: 'Elasticsearch',
+                            children: [
+                                'storage/elasticsearch/'
+                            ]
+                        },
                         {
                             title: 'Redis',
                             children: [
@@ -207,6 +219,12 @@ module.exports = {
                             title: 'MySQL',
                             children: [
                                 'storage/mysql/mysql-install'
+                            ]
+                        },
+                        {
+                            title: 'SQLite',
+                            children: [
+                                'storage/sqlite/'
                             ]
                         }
                     ]

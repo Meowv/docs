@@ -306,14 +306,8 @@ module.exports = {
                                 'docker/swarm_mode/rolling_update'
                             ]
                         },
-                        {
-                            title: 'podman',
-                            path: 'docker/podman/'
-                        },
-                        {
-                            title: '常见问题总结',
-                            path: 'docker/faq/'
-                        },
+                        'docker/podman/',
+                        'docker/faq/',
                         {
                             title: 'Docker 常用镜像',
                             children: [
@@ -327,18 +321,9 @@ module.exports = {
                                 'docker/command/dockerd',
                             ]
                         },
-                        {
-                            title: 'Dockerfile 最佳实践',
-                            path: 'docker/best_practices/'
-                        },
-                        {
-                            title: '如何调试 Docker',
-                            path: 'docker/debug/'
-                        },
-                        {
-                            title: '资源链接',
-                            path: 'docker/resources/'
-                        },
+                        'docker/best_practices/',
+                        'docker/debug/',
+                        'docker/resources/',
                         {
                             title: 'CI/CD',
                             children: [
@@ -364,7 +349,20 @@ module.exports = {
                 {
                     title: 'Kubernetes',
                     children: [
-                        'kubernetes/'
+                        'kubernetes/intro',
+                        'kubernetes/concepts',
+                        'kubernetes/design',
+                        {
+                            title: '部署 Kubernetes',
+                            children: [
+                                'kubernetes/setup/',
+                                'kubernetes/setup/kubeadm',
+                                'kubernetes/setup/docker-desktop',
+                                'kubernetes/setup/systemd',
+                                'kubernetes/setup/dashboard'
+                            ]
+                        },
+                        'kubernetes/kubectl'
                     ]
                 },
                 {

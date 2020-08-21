@@ -181,6 +181,16 @@ module.exports = {
                 {
                     title: '.NET Core',
                     children: [
+                        'dotnetcore/abp-template',
+                        'dotnetcore/autoapi',
+                        'dotnetcore/api-gateway',
+                        'dotnetcore/grpc-in-dotnet',
+                        'dotnetcore/apollo-in-dotnet',
+                        'dotnetcore/elasticsearch-in-dotnet',
+                        'dotnetcore/serilog-in-dotnet',
+                        'dotnetcore/exceptionless-in-dotnet',
+                        'dotnetcore/rabbitmq-in-dotnet',
+                        'dotnetcore/kafka-in-dotnet',
                         'dotnetcore/mta-package',
                         'dotnetcore/operate-git-auto-publish-to-github',
                         'dotnetcore/epplus-wps-error',

@@ -220,6 +220,16 @@ module.exports = {
                                 'docker/repository/registry_auth',
                                 'docker/repository/nexus3_registry',
                             ]
+                        },
+                        {
+                            title: 'CI/CD',
+                            children: [
+                                'docker/cicd/',
+                                'docker/cicd/github-actions',
+                                'docker/cicd/drone',
+                                'docker/cicd/drone-install',
+                                'docker/cicd/travis'
+                            ]
                         }
                     ]
                 },

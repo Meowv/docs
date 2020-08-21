@@ -210,6 +210,16 @@ module.exports = {
                                 'docker/install/mirror',
                                 'docker/install/experimental'
                             ]
+                        },
+                        {
+                            title: 'Docker 仓库',
+                            children: [
+                                'docker/repository/',
+                                'docker/repository/dockerhub',
+                                'docker/repository/registry',
+                                'docker/repository/registry_auth',
+                                'docker/repository/nexus3_registry',
+                            ]
                         }
                     ]
                 },

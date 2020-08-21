@@ -196,7 +196,21 @@ module.exports = {
                 {
                     title: 'Docker',
                     children: [
-                        'docker/'
+                        {
+                            title: '安装 Docker',
+                            children: [
+                                'docker/install/ubuntu',
+                                'docker/install/debian',
+                                'docker/install/fedora',
+                                'docker/install/centos',
+                                'docker/install/raspberry-pi',
+                                'docker/install/offline',
+                                'docker/install/mac',
+                                'docker/install/windows',
+                                'docker/install/mirror',
+                                'docker/install/experimental'
+                            ]
+                        }
                     ]
                 },
                 {

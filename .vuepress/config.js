@@ -312,7 +312,25 @@ module.exports = {
                         {
                             title: 'Docker 常用镜像',
                             children: [
-                                'docker/repo/'
+                                'docker/repo/elasticsearch',
+                                'docker/repo/kibana',
+                                'docker/repo/grafana',
+                                'docker/repo/zookeeper',
+                                'docker/repo/kafka',
+                                'docker/repo/rabbitmq',
+                                'docker/repo/memcached',
+                                'docker/repo/sqlserver',
+                                'docker/repo/postgres',
+                                'docker/repo/ubuntu',
+                                'docker/repo/centos',
+                                'docker/repo/nginx',
+                                'docker/repo/php',
+                                'docker/repo/nodejs',
+                                'docker/repo/mysql',
+                                'docker/repo/wordpress',
+                                'docker/repo/mongodb',
+                                'docker/repo/redis',
+                                'docker/repo/minio'
                             ]
                         },
                         {
@@ -364,19 +382,6 @@ module.exports = {
                             ]
                         },
                         'kubernetes/kubectl'
-                    ]
-                },
-                {
-                    title: 'Message Queue',
-                    children: [
-                        'messagequeue/kafka',
-                        'messagequeue/rabbitmq'
-                    ]
-                },
-                {
-                    title: 'Grafana',
-                    children: [
-                        'grafana/'
                     ]
                 },
                 {

@@ -306,6 +306,7 @@ module.exports = {
                                 'docker/swarm_mode/rolling_update'
                             ]
                         },
+                        'docker/linuxkit/',
                         'docker/podman/',
                         'docker/faq/',
                         {

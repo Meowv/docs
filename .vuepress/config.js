@@ -4,7 +4,20 @@ module.exports = {
     base: '/',
     host: '127.0.0.1',
     port: '90',
-    head: [],
+    head: [
+        ['script', {}, `
+        var _mtac = {"senseQuery":1};
+        (function() {
+            var mta = document.createElement("script");
+            mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
+            mta.setAttribute("name", "MTAH5");
+            mta.setAttribute("sid", "500727760");
+            mta.setAttribute("cid", "500727761");
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(mta, s);
+        })();
+        `],
+    ],
     plugins: [
         '@vuepress/back-to-top',
         '@vuepress/nprogress',

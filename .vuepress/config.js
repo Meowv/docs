@@ -348,6 +348,16 @@ module.exports = {
                                 'docker/cicd/drone-install',
                                 'docker/cicd/travis'
                             ]
+                        },
+                        {
+                            title: 'Compose',
+                            children: [
+                                'docker/compose/introduction',
+                                'docker/compose/install',
+                                'docker/compose/usage',
+                                'docker/compose/commands',
+                                'docker/compose/compose_file'
+                            ]
                         }
                     ]
                 },

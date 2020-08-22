@@ -395,12 +395,6 @@ module.exports = {
                     ]
                 },
                 {
-                    title: 'Zabbix',
-                    children: [
-                        'zabbix/'
-                    ]
-                },
-                {
                     title: 'Storage',
                     children: [
                         {
@@ -462,6 +456,8 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'other/nginx',
+                        'other/zabbix',
                         'other/batch-rename-with-powershell',
                         'other/revoke-wechart-msg-patcher',
                         'other/visual-studio-2019-keys',

@@ -457,6 +457,7 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'other/why-is-kafka-so-fast',
                         'other/kafka-install',
                         'other/nginx',
                         'other/zabbix',

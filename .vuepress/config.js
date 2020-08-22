@@ -406,6 +406,7 @@ module.exports = {
                         {
                             title: 'Redis',
                             children: [
+                                'storage/redis/redis-knowledge',
                                 'storage/redis/quick-start-with-redis'
                             ]
                         },

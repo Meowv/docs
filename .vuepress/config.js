@@ -457,6 +457,7 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'other/kafka-install',
                         'other/nginx',
                         'other/zabbix',
                         'other/batch-rename-with-powershell',

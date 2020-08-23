@@ -1,4 +1,4 @@
-name: docs deploy
+name: publish documents
 
 on: 
   push:
@@ -16,9 +16,25 @@ jobs:
     - run: npm run build
     - run: cp CNAME .vuepress/dist/
     
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+    - name: Deploy to github.io
+      uses: peaceiris/actions-gh-pages@v3
       env:
         ACTIONS_DEPLOY_KEY: ${{secrets.DEPLOY_KEY}}
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: .vuepress/dist
+
+    - name: Sync to gitee.io
+      uses: wearerequired/git-mirror-action@master
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.GITEE_PRIVATE_KEY }}
+      with:
+          source-repo: "git@github.com:meowv/docs.git"
+          destination-repo: "git@gitee.com:meowv/meowv.git"
+
+    - name: Reload Gitee Pages
+      uses: mizuka-wu/gitee-pages-action@v1.0.0
+      with:
+          repository: meowv/docs
+          cookie: ${{ secrets.GITEE_COOKIE }}
+          branch: gh-pages
+    

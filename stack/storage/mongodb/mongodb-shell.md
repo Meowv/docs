@@ -2,7 +2,7 @@
 
 ## 常用基本操作
 
-```shell
+```sql
 # 查看数据库列表
 show dbs
 
@@ -49,6 +49,321 @@ db.getMongo()
 
 # 查看当前的连接数
 db.serverStatus().connections.current
+
+# 更新列名
+db.collection.update({}, {$rename : {"StoreId" : "MetaId"}}, false, true)
+
+# 查询长度
+db.getCollection("table").find({$where:'this.StoreId.length>2'},{Name:0})
+
+# 查询总条数
+db.getCollection("table").find({}).count()
+
+# 区间查询
+db.getCollection("collection").find({'StoreId':1139,'CardNo':{'$gte':'90225001','$lte':'90295000'}})
+
+# 多个区间查询
+db.getCollection("collection").find({ $or : [{ $and : [{"CardNo" : { $gte : "10000001" }}, {"CardNo" : { $lte : "10000003" }}] }, { $and : [{"CardNo" : { $gte : "10000006" }}, {"CardNo" : { $lte : "10000008" }}] }] }).limit(1000).skip(0)
+
+# 排序 1升序 -1降序
+db.getCollection("collection").find().sort({"CreationTime":1})
+
+# 更改字段类型
+db.collection.find({'PicId' : { $type : 16 }}).forEach(function(x) {x.PicId = String(x.PicId);db.table_Experts.save(x);})
+
+# 添加一个字段
+db.collection.update({}, {$set: {content:""}}, {multi: true})
+
+# 删除一个字段
+db.collection.update({},{$unset:{content:""}},false, true)
+
+# 清空数据
+db.collection.remove({})
+
+# 查询指定列
+db.news.find( {}, { id: 1, title: 1 } )
+
+# 修改列表
+db.getCollection('collection').update({},{$rename:{"OId":'MetaId'}},false,true)
+
+# update
+db.getCollection('collection').update(
+    // query
+    {
+        "MenuKey" : 28
+    },
+    // update
+    {
+        $set:{"Url":"..."}
+    },
+    false,
+    true
+);
+
+# 按照时间年月分组
+db.collection.aggregate([
+ {$match: { CreateDate: { $gte: new Date('2018-01-01'), $lte: new Date('2019-07-31') }  }} ,
+ {$group:{_id:{CreateDate:{year: { $year: "$CreateDate"},month: { $month: "$CreateDate" }}}, count: { $sum: 1 }}}
+])
+
+# 分组
+db.collection.aggregate([
+    {
+        $match: {
+            CreateDate: {
+                $gte: new Date('2017-01-01'),
+                $lte: new Date('2019-07-31')
+            }
+        }
+    },
+    {
+        "$group": {
+            _id: {
+                month: {
+                    $dateToString: {
+                        format: "%Y-%m",
+                        date: "$CreateDate"
+                    }
+                }
+            },
+            count: {
+                $sum: 1
+            }
+        }
+    },
+    {
+        "$project": {
+            "年月": "$_id.month",
+            "总数": "$count",
+        }
+    }
+])
+
+
+# all匹配list
+db.getCollection("collection").find({
+    CategoryList: {
+        $all: [
+            {
+                "$elemMatch": {
+                    "CategoryId": 'gz',
+                }
+            },
+            {
+                "$elemMatch": {
+                    "CategoryId": 'g1',
+                }
+            },
+            {
+                "$elemMatch": {
+                    "CategoryId": 'g1wy',
+                }
+            }
+        ]
+    }
+});
+
+# 集合查询
+db.getCollection("collection").find({
+    "CardList": {
+        $elemMatch: {
+            $and: [{
+                "CardType": 14
+            }, {
+                "Number": {
+                    $gt: 0
+                }
+            }]
+        }
+    }
+})
+
+# 集合查询同时满足多个条件
+db.getCollection("collection").find({
+    CardList: {
+        $all: [
+            {
+                "$elemMatch": {
+                    "CardType": 2,
+                    "Name": "aaa"
+                }
+            },
+            {
+                "$elemMatch": {
+                    "CardType": 3,
+                    "Name": "bbb"
+                }
+            }
+        ]
+    }
+});
+
+# and查询
+db.getCollection("collection").find({
+    $and: [
+        {
+            CardList: {
+                "$elemMatch": {
+                    "CardType": 2,
+                    "Name": "aaa"
+                }
+            }
+        },
+        {
+            CardList: {
+                "$elemMatch": {
+                   "CardType": 3,
+                    "Name": "bbb"
+                }
+            }
+        }
+    ]
+});
+
+# 集合长度查询
+db.getCollection("collection").find({
+    StudentNumId: 1168,
+    _id: ObjectId('5be29c013a9d283484b7173f'),
+    'FiveStars': {
+        $size: 3 //集合长度等于3
+    }
+});
+
+# 多字段同时分组
+db.getCollection('collection').aggregate([{
+    "$match": {
+        "$and": [{
+            "ParentName": {
+                "$eq": ""
+            }
+        }]
+    }
+}, {
+    "$group": {
+        "_id": {
+            "GroupName": {
+                $concat: [{
+                    $substr: ["$Year", 0, 4]
+                }, "-", {
+                    $substr: ["$Month", 0, 2]
+                }]
+            }
+        }
+    }
+}, {
+    "$project": {
+        "GroupName": "$_id.GroupName",
+        "_id": 0
+    }
+}])
+
+# 多表联合查询
+db.getCollection("collection").aggregate(
+    [
+        {
+            $match: {
+                $and: [
+                    {
+                        $and: [{
+                            "IsDeleted": {
+                                $ne: true
+                            }
+                        }, {
+                            "ProvinceId": 859
+                        }]
+                    },
+                    {
+                        $or: [{
+                            $and: [{
+                                "CourseTypeId": 1
+                            }, {
+                                "Total": {
+                                    $gte: 400
+                                }
+                            }, {
+                                "Total": {
+                                    $lte: 517
+                                }
+                            }]
+                        }, {
+                            $and: [{
+                                "CourseTypeId": 0
+                            }, {
+                                "Total": {
+                                    $gte: 363
+                                }
+                            }, {
+                                "Total": {
+                                    $lte: 467
+                                }
+                            }]
+                        }]
+                    }
+                ]
+            }
+        },
+        {
+            $lookup: {
+                from: "collection2",
+                localField: "UserId",
+                foreignField: "NumId",
+                as: "users"
+            }
+        },
+        {
+            $project: {
+                "用户名": {
+                    $arrayElemAt: ['$users.Username', 0]
+                },
+                "手机号": {
+                    $arrayElemAt: ['$users.MobilePhone', 0]
+                },
+                "真实姓名": {
+                    $arrayElemAt: ['$users.RealName', 0]
+                },
+                "Total": 1
+            }
+        },
+    ]
+);
+
+# 时间格式化后分组查询
+db.collection.aggregate(
+    [
+        {
+            "$match": {
+                "$and": [{
+                    "Status": 2
+                }, {
+                    "Type": 2
+                }
+        ]
+            }
+        },
+        {
+            "$group": {
+                _id: {
+                    month: {
+                        $dateToString: {
+                            format: "%Y-%m",
+                            date: "$Time"
+                        }
+                    }
+                },
+                sum: {
+                    $sum: "$Price"
+                }
+            }
+        },
+        {
+            "$project": {
+                "Date": "$_id.month",
+                "Sum": "$sum",
+                "_id": 0
+            }
+        }
+    ]
+)
 ```
 
 ## Collection聚集集合

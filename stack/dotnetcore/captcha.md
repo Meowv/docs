@@ -47,7 +47,7 @@ public class CaptchaResult
 }
 ```
 
-接下来实现接口，主要是依赖微软的`System.Drawing`组件，注意命名空间的引用
+接下来实现接口，主要是依赖微软的`System.Drawing.Common`组件，注意命名空间的引用
 
 ```csharp
 using System;

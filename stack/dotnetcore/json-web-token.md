@@ -173,7 +173,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 添加上面这段代码即可，`await context.Response.WriteAsync()`可以返回你自定义的错误消息，这里返回的是一个json字符串。
 
-另外还有一种场景，默认我们拿到token进行授权访问，是需要在请求头中添加`Authorization Bearer {token}`这种方式的，如果我不想在请求头中使用要怎么做呢？比如我想讲token放在URL参数中，或者cookie中？
+另外还有一种场景，默认我们拿到token进行授权访问，是需要在请求头中添加`Authorization Bearer {token}`这种方式的，如果我不想在请求头中使用要怎么做呢？比如我想将token放在URL参数中，或者cookie中？
 
 同样也是可以的，而且实现方式也超级简单，看下面代码。
 

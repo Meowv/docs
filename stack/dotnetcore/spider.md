@@ -46,7 +46,7 @@ namespace SpiderDemo
 
 在项目中安装`HtmlAgilityPack`组件
 
-```bash
+```PowerShell
 Install-Package HtmlAgilityPack
 ```
 
@@ -140,7 +140,7 @@ namespace SpiderDemo
 
 在项目中安装`AngleSharp`组件
 
-```bash
+```PowerShell
 Install-Package AngleSharp
 ```
 
@@ -238,7 +238,7 @@ namespace SpiderDemo
 
 在项目中安装`PuppeteerSharp`组件
 
-```bash
+```PowerShell
 Install-Package PuppeteerSharp
 ```
 

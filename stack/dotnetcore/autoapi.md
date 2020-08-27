@@ -8,7 +8,7 @@
 
 在你的应用服务层中添加组件
 
-```bash
+```PowerShell
 Install-Package Plus.AutoApi
 ```
 

@@ -13,7 +13,7 @@
 
 在 .NET Core 项目中安装组件
 
-```bash
+```PowerShell
 Install-Package NES
 ```
 

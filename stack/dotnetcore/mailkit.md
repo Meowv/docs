@@ -6,7 +6,7 @@
 
 新建一个控制台应用程序，将`MailKit`添加到项目中。
 
-```bash
+```PowerShell
 Install-Package MailKit
 ```
 

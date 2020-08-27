@@ -6,7 +6,7 @@
 
 在项目中添加`EPPlus`组件
 
-```bash
+```PowerShell
 Install-Package EPPlus
 ```
 

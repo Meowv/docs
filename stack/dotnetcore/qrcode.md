@@ -6,7 +6,7 @@
 
 先在项目中添加组件
 
-```bash
+```PowerShell
 Install-Package QRCoder
 ```
 

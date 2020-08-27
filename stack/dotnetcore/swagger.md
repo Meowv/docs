@@ -6,7 +6,7 @@
 
 在项目中添加组件
 
-```bash
+```PowerShell
 Install-Package Swashbuckle.AspNetCore
 ```
 
@@ -84,7 +84,7 @@ app.UseSwaggerUI(c =>
 
 需要额外添加一个组件
 
-```bash
+```PowerShell
 Install-Package Swashbuckle.AspNetCore.Filters
 ```
 
@@ -184,7 +184,7 @@ context.Services.AddSwaggerGen(options =>
 
 他们的使用方式基本一致，先在项目中添加一下组件
 
-```bash
+```PowerShell
 Install-Package Swashbuckle.AspNetCore.ReDoc
 ```
 

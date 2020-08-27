@@ -4,7 +4,7 @@
 
 要想使用JWT，仅仅只需要在项目中引用微软的一个认证组件。
 
-```bash
+```PowerShell
 Install-Package Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 

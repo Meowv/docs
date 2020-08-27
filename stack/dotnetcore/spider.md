@@ -242,3 +242,79 @@ namespace SpiderDemo
 Install-Package PuppeteerSharp
 ```
 
+使用`PuppeteerSharp`第一次会帮我们在项目根目录中下载浏览器执行程序，这个取决于当前网速的快慢，建议手动下载后放在指定位置即可。
+
+```csharp
+using PuppeteerSharp;
+using System.Threading.Tasks;
+
+namespace SpiderDemo
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            // 下载浏览器执行程序
+            await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision);
+
+            // 创建一个浏览器执行实例
+            using var browser = await Puppeteer.LaunchAsync(new LaunchOptions
+            {
+                Headless = true,
+                Args = new string[] { "--no-sandbox" }
+            });
+
+            // 打开一个页面
+            using var page = await browser.NewPageAsync();
+
+            // 设置页面大小
+            await page.SetViewportAsync(new ViewPortOptions
+            {
+                Width = 1920,
+                Height = 1080
+            });
+        }
+    }
+}
+```
+
+上面这段代码是初始化`PuppeteerSharp`必要的代码，可以根据实际开发需要进行修改，下面以"https://juejin.im"为例，演示几个常用操作。
+
+### 获取单页应用HTML
+
+```csharp
+...
+var url = "https://juejin.im";
+await page.GoToAsync(url, WaitUntilNavigation.Networkidle0);
+var content = await page.GetContentAsync();
+Console.WriteLine(content);
+```
+
+![ ](./images/spider-03.png)
+
+可以看到页面上的HTML全部被获取到了，这时候就可以利用规则解析HTML，拿到我们想要的数据了。
+
+### 保存为图片
+
+```csharp
+...
+var url = "https://juejin.im/";
+await page.GoToAsync(url, WaitUntilNavigation.Networkidle0);
+
+await page.ScreenshotAsync("juejin.png");
+```
+
+![ ](./images/spider-04.png)
+
+### 保存为PDF
+
+```csharp
+var url = "https://juejin.im/";
+await page.GoToAsync(url, WaitUntilNavigation.Networkidle0);
+
+await page.PdfAsync("juejin.pdf");
+```
+
+![ ](./images/spider-05.png)
+
+`PuppeteerSharp`的功能还有很多，比如页面注入HTML、执行JS代码等，使用的时候可以参考官网示例。

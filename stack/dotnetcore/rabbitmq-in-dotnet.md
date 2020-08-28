@@ -18,10 +18,110 @@ RabbitMQ是一个开源的,基于AMQP(Advanced Message Queuing Protocol)协议�
 
 ## 快速开始
 
-在 .NET Core 项目中安装组件
+接下来我们用RabbitMQ来完成一个比较常见的生产者和消费者模式的代码，新建两个控制台项目，`RabbitMQConsumer`和`RabbitMQProducer`。
+
+分别在两个项目中安装组件
 
 ```PowerShell
 Install-Package RabbitMQ.Client
 ```
 
-TODO...
+在`RabbitMQProducer`生产者项目中，添加以下代码。
+
+```csharp
+using RabbitMQ.Client;
+using System;
+using System.Text;
+
+namespace RabbitMQProducer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                Port = 5672,
+                UserName = "guest",
+                Password = "guest"
+            };
+
+            using var connection = factory.CreateConnection();
+            using var channel = connection.CreateModel();
+
+            var exchange = "msg_test";
+
+            channel.ExchangeDeclare(exchange, type: ExchangeType.Fanout);
+
+            for (int i = 0; i < 10000; i++)
+            {
+                var message = $"hello，我是生产者【{i + 1}】号";
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange, routingKey: "", basicProperties: null, body: body);
+
+                Console.WriteLine($"- 发送消息：{message}");
+            }
+        }
+    }
+}
+```
+
+模拟发出10000次消息，接下来在`RabbitMQConsumer`消费者项目中接收消息，代码如下：
+
+```csharp
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System;
+using System.Text;
+
+namespace RabbitMQConsumer
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var factory = new ConnectionFactory()
+            {
+                HostName = "localhost",
+                Port = 5672,
+                UserName = "guest",
+                Password = "guest"
+            };
+
+            using var connection = factory.CreateConnection();
+            using var channel = connection.CreateModel();
+
+            var exchange = "msg_test";
+
+            channel.ExchangeDeclare(exchange, type: ExchangeType.Fanout);
+
+            var queueName = channel.QueueDeclare().QueueName;
+            channel.QueueBind(queue: queueName, exchange, routingKey: "");
+
+            Console.WriteLine("开始监听消息...");
+            while (true)
+            {
+                var consumer = new EventingBasicConsumer(channel);
+
+                consumer.Received += (model, ea) =>
+                {
+                    byte[] body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+
+                    Console.WriteLine($"- 接收到消息：{message}");
+                };
+
+                channel.BasicConsume(queue: queueName, autoAck: true, consumer: consumer);
+            }
+        }
+    }
+}
+```
+
+同时启动两个看看效果。
+
+![ ](./images/rabbitmq-in-dotnet-02.png)
+
+一闪而过，速度还是挺快的，更多操作可以查看官方教程：<https://www.rabbitmq.com/getstarted.html>

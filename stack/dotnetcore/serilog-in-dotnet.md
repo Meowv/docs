@@ -14,12 +14,10 @@ Unlike other logging libraries, Serilog is built with powerful structured event 
 
 在项目中添加下面几个组件包
 
-```xml
-<PackageReference Include="Volo.Abp.Autofac" Version="3.0.5" />
-<PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.6" />
-<PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
-<PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-<PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
+```powershell
+Install-Package Serilog.Extensions.Logging
+Install-Package Serilog.Sinks.Console
+Install-Package Serilog.Sinks.File
 ```
 
 ```csharp
@@ -89,11 +87,10 @@ public class XxxHostedService : IHostedService
 
 在项目中添加下面几个组件包
 
-```xml
-<PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
-<PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
-<PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-...
+```powershell
+Install-Package Serilog.AspNetCore
+Install-Package Serilog.Sinks.Async
+Install-Package Serilog.Sinks.File
 ```
 
 ```csharp

@@ -7,7 +7,7 @@
 
 ## 介绍
 
-- Broker：消息中间件处理结点，一个Kafka节点就是一个broker，多个broker可以组成一个Kafka集群。
+- Broker：消息中间件处理节点，一个Kafka节点就是一个broker，多个broker可以组成一个Kafka集群。
 - Topic：一类消息，例如page view日志、click日志等都可以以topic的形式存在，Kafka集群能够同时负责多个topic的分发。
 - Partition：topic物理上的分组，一个topic可以分为多个partition，每个partition是一个有序的队列。
 - Segment：partition物理上由多个segment组成，下面2.2和2.3有详细说明。

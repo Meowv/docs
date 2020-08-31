@@ -161,6 +161,6 @@ namespace EmailDemo
 }
 ```
 
-在本地准备先一张图片，利用ContentId的方式迁入在img标签中，成功将其发送出去。
+先在本地准备一张图片，利用ContentId的方式嵌入在img标签中，成功将其发送出去。
 
 ![ ](./images/mailkit-02.png)

@@ -4,7 +4,7 @@
 
 Templates to use when creating an application for abp vNext.
 
-基于abp已经最小化集成了各种项目开发所需的组件，Redis、Swagger、Autofac、Serilog、数据迁移、JWT、多语言支持等，支持多数据库(MySql、SqlServer、Sqlite、MongoDB)自由切换，可以根据业务许需求自行简单修改，真正的开箱即用，直接开干写业务。
+基于abp已经最小化集成了各种项目开发所需的组件，Redis、Swagger、Autofac、Serilog、数据迁移、JWT、多语言支持等，支持多数据库(MySql、SqlServer、Sqlite、MongoDB)自由切换，可以根据业务需求自行简单修改，真正的开箱即用，直接开干写业务。
 
 ## 快速使用
 

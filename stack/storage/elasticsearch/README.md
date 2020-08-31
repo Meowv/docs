@@ -40,7 +40,7 @@
 
 ## Logstash
 
-英文文档请参考：[《Logstash Reference》](https://www.elastic.co/guide/en/logstash/current/index.html)
+[Logstash Reference](https://www.elastic.co/guide/en/logstash/current/index.html)
 
 [Configuring Logstash](https://www.elastic.co/guide/en/logstash/current/configuration.html)
 

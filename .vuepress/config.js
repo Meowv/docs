@@ -332,6 +332,7 @@ module.exports = {
                         {
                             title: 'Docker 常用镜像',
                             children: [
+                                'docker/repo/consul',
                                 'docker/repo/elasticsearch',
                                 'docker/repo/kibana',
                                 'docker/repo/grafana',

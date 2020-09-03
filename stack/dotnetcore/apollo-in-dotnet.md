@@ -57,7 +57,7 @@ services:
 
 搜索所有`apollo-quick-start`开头的日志，看到以下日志说明启动成功：
 
-```log
+```bash
 apollo-quick-start    | Waiting for config service startup.....
 apollo-quick-start    | Config service started. You may visit http://localhost:8080 for service status now!
 apollo-quick-start    | Waiting for admin service startup.

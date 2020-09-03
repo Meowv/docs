@@ -1,4 +1,4 @@
-docker-compose build
+docker-compose build --no-cache
 
 docker tag docs_vuepress hackxing/documents:latest
 

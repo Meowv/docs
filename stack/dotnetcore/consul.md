@@ -58,7 +58,7 @@ services:
 
 添加两个webapi服务，ServiceA和ServiceB，一个webapi客户端Client来调用服务。
 
-```powershell
+```bash
 dotnet new sln -n consul_demo
 
 dotnet new webapi -n ServiceA
@@ -324,7 +324,7 @@ ENTRYPOINT ["dotnet", "ServiceB.dll"]
 
 然后定位到项目根目录，使用命令去编译两个镜像，service_a和service_b
 
-```powershell
+```bash
 docker build -t service_a:dev -f ./ServiceA/Dockerfile .
 
 docker build -t service_b:dev -f ./ServiceB/Dockerfile .
@@ -369,3 +369,241 @@ docker run -d -p 5062:80 --name service_b3 service_b:dev --Consul:Port="5062"
 因为终端编码问题，导致显示乱码，这个不影响，ok，至此服务注册大功告成。
 
 ### 服务发现
+
+搞定了服务注册，接下来演示一下如何服务发现，在Client项目中先将`Consul`地址配置到`appsettings.json`中。
+
+```json
+{
+    "Consul": {
+        "Address": "http://host.docker.internal:8500"
+    }
+}
+```
+
+然后添加一个接口，`IService.cs`，添加三个方法，分别获取两个服务的返回结果以及初始化服务的方法。
+
+```csharp
+using System.Threading.Tasks;
+
+namespace Client
+{
+    public interface IService
+    {
+        /// <summary>
+        /// 获取 ServiceA 返回数据
+        /// </summary>
+        /// <returns></returns>
+        Task<string> GetServiceA();
+
+        /// <summary>
+        /// 获取 ServiceB 返回数据
+        /// </summary>
+        /// <returns></returns>
+        Task<string> GetServiceB();
+
+        /// <summary>
+        /// 初始化服务
+        /// </summary>
+        void InitServices();
+    }
+}
+```
+
+实现类：`Service.cs`
+
+```csharp
+using System;
+using System.Collections.Concurrent;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Consul;
+using Microsoft.Extensions.Configuration;
+
+namespace Client
+{
+    public class Service : IService
+    {
+        private readonly IConfiguration _configuration;
+        private readonly ConsulClient _consulClient;
+
+        private ConcurrentBag<string> _serviceAUrls;
+        private ConcurrentBag<string> _serviceBUrls;
+
+        private IHttpClientFactory _httpClient;
+
+        public Service(IConfiguration configuration, IHttpClientFactory httpClient)
+        {
+            _configuration = configuration;
+
+            _consulClient = new ConsulClient(options =>
+            {
+                options.Address = new Uri(_configuration["Consul:Address"]);
+            });
+
+            _httpClient = httpClient;
+        }
+
+        public async Task<string> GetServiceA()
+        {
+            if (_serviceAUrls == null)
+                return await Task.FromResult("ServiceA正在初始化...");
+
+            using var httpClient = _httpClient.CreateClient();
+
+            var serviceUrl = _serviceAUrls.ElementAt(new Random().Next(_serviceAUrls.Count()));
+
+            Console.WriteLine("ServiceA：" + serviceUrl);
+
+            var result = await httpClient.GetStringAsync($"{serviceUrl}/api/servicea");
+
+            return result;
+        }
+
+        public async Task<string> GetServiceB()
+        {
+            if (_serviceBUrls == null)
+                return await Task.FromResult("ServiceB正在初始化...");
+
+            using var httpClient = _httpClient.CreateClient();
+
+            var serviceUrl = _serviceBUrls.ElementAt(new Random().Next(_serviceBUrls.Count()));
+
+            Console.WriteLine("ServiceB：" + serviceUrl);
+
+            var result = await httpClient.GetStringAsync($"{serviceUrl}/api/serviceb");
+
+            return result;
+        }
+
+        public void InitServices()
+        {
+            var serviceNames = new string[] { "ServiceA", "ServiceB" };
+
+            foreach (var item in serviceNames)
+            {
+                Task.Run(async () =>
+                {
+                    var queryOptions = new QueryOptions
+                    {
+                        WaitTime = TimeSpan.FromMinutes(5)
+                    };
+                    while (true)
+                    {
+                        await InitServicesAsync(queryOptions, item);
+                    }
+                });
+            }
+
+            async Task InitServicesAsync(QueryOptions queryOptions, string serviceName)
+            {
+                var result = await _consulClient.Health.Service(serviceName, null, true, queryOptions);
+
+                if (queryOptions.WaitIndex != result.LastIndex)
+                {
+                    queryOptions.WaitIndex = result.LastIndex;
+
+                    var services = result.Response.Select(x => $"http://{x.Service.Address}:{x.Service.Port}");
+
+                    if (serviceName == "ServiceA")
+                    {
+                        _serviceAUrls = new ConcurrentBag<string>(services);
+                    }
+                    else if (serviceName == "ServiceB")
+                    {
+                        _serviceBUrls = new ConcurrentBag<string>(services);
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+代码就不解释了，相信都可以看懂，使用了`Random`类随机获取一个服务，关于这点可以选择更合适的负载均衡方式。
+
+在`Startup.cs`中添加接口依赖注入、使用初始化服务等代码。
+
+```csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+namespace Client
+{
+    public class Startup
+    {
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        public IConfiguration Configuration { get; }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+
+            services.AddControllers();
+
+            services.AddHttpClient();
+
+            services.AddSingleton<IService, Service>();
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IService service)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseHttpsRedirection();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
+
+            service.InitServices();
+        }
+    }
+}
+```
+
+一切就绪，添加api访问我们的两个服务。
+
+```csharp
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Client.Controllers
+{
+    [Route("api")]
+    [ApiController]
+    public class HomeController : ControllerBase
+    {
+        [HttpGet]
+        [Route("service_result")]
+        public async Task<IActionResult> GetService([FromServices] IService service)
+        {
+            return Ok(new
+            {
+                serviceA = await service.GetServiceA(),
+                serviceB = await service.GetServiceB()
+            });
+        }
+    }
+}
+```
+
+直接在Visual Studio中运行Client项目，在浏览器访问api。
+
+![ ](./images/consul-11.png)
+
+大功告成，服务注册与发现，现在就算之中的某个节点挂掉，服务也可以照常运行。

@@ -204,7 +204,7 @@ await kafkaService.SubscribeAsync<XxxEventData>(topics, async (eventData) =>
 
 在`IKafkaService`中已经写了订阅消息的接口，这里也是注入后直接使用即可。
 
-## 生产者消费者测试用例
+## 生产者消费者示例
 
 ### 生产者
 

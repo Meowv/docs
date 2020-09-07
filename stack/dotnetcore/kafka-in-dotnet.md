@@ -84,7 +84,7 @@ public class KafkaService : IKafkaService
         var config = new ConsumerConfig
         {
             BootstrapServers = "127.0.0.1:9092",
-            GroupId = "crow-consumer",
+            GroupId = "consumer",
             EnableAutoCommit = false,
             StatisticsIntervalMs = 5000,
             SessionTimeoutMs = 6000,

@@ -4,7 +4,7 @@
 
 ## 网关介绍
 
-网关其实就是将我们写好的API全部放在一个统一的地址暴漏在公网，提供访问的一个入口。在 .NET Core下可以使用`Ocelot`来帮助我们很方便的接入API 网关。与之类似的库还有[`ProxyKit`](https://github.com/proxykit/ProxyKit)，微软也发布了一个反向代理的库[`YARP`](https://github.com/microsoft/reverse-proxy)。
+网关其实就是将我们写好的API全部放在一个统一的地址暴露在公网，提供访问的一个入口。在 .NET Core下可以使用`Ocelot`来帮助我们很方便的接入API 网关。与之类似的库还有[`ProxyKit`](https://github.com/proxykit/ProxyKit)，微软也发布了一个反向代理的库[`YARP`](https://github.com/microsoft/reverse-proxy)。
 
 关于网关的介绍不多说了，网上文章也挺多的，这些都是不错的选择，听说后期`Ocelot`将会使用`YARP`来重写。本篇主要实践一下在.NET Core环境下使用`Ocelot`。
 
@@ -15,13 +15,9 @@
 
 ## 接入使用
 
+### 接口示例
+
 先创建几个项目用于测试，创建两个默认的API项目，Api_A和Api_B，在创建一个网关项目Api_Gateway，网关项目可以选择空的模板。
-
-在网关项目Api_Gateway中都添加`Ocelot`组件包。
-
-```powershell
-Install-Package Ocelot
-```
 
 现在分别在Api_A和Api_B中写几个api，将默认的`WeatherForecastController`中返回模型`WeatherForecast`添加一个字段Source，用于区分是哪个API返回的数据。
 
@@ -152,13 +148,13 @@ namespace Api_A.Controllers
         }
 
         [HttpPost]
-        public string Post([FromBody] string value)
+        public string Post([FromForm] string value)
         {
             return $"Post:{value}";
         }
 
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody] string value)
+        public string Put(int id, [FromForm] string value)
         {
             return $"Put:{id}:{value}";
         }
@@ -195,13 +191,13 @@ namespace Api_B.Controllers
         }
 
         [HttpPost]
-        public string Post([FromBody] string value)
+        public string Post([FromForm] string value)
         {
             return $"Post:{value}";
         }
 
         [HttpPut("{id}")]
-        public string Put(int id, [FromBody] string value)
+        public string Put(int id, [FromForm] string value)
         {
             return $"Put:{id}:{value}";
         }
@@ -218,7 +214,7 @@ namespace Api_B.Controllers
 ![ ](./images/api-gateway-02.png)
 ![ ](./images/api-gateway-03.png)
 
-添加`swagger`，这样我们Api_A和Api_B项目分别就有了6个接口。
+方便查看接口，这里添加一下`swagger`组件，这样我们Api_A和Api_B项目分别就有了6个接口。
 
 接着打包docker镜像，放在docker中运行这两个api项目。这一步可以用任何你熟悉的方式，run起来即可。
 
@@ -235,3 +231,200 @@ docker run -d -p 5051:80 --name api_b api_b:dev
 ```
 
 Api_A指定了5050端口，通过 <http://localhost:5050/swagger>打开可以看到swagger文档界面，Api_B指定了5051端口，通过 <http://localhost:5051/swagger>打开可以看到swagger文档界面，这样就大功告成了，接下来才是重点将两个api项目配置到Api_Gateway网关项目中。
+
+### 配置网关
+
+在网关项目Api_Gateway中都添加`Ocelot`组件包。
+
+```powershell
+Install-Package Ocelot
+```
+
+`Ocelot`中最关键的就是配置路由信息，新建一个`ocelot.json`配置文件，将我们的两个API接口匹配规则放进去。
+
+```json
+{
+  "Routes": [
+    //ApiA
+    {
+      "DownstreamPathTemplate": "/api/WeatherForecast",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5050
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiA/WeatherForecast",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ApiA",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5050
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiA",
+      "UpstreamHttpMethod": [ "Get", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ApiA/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5050
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiA/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    },
+    //ApiB
+    {
+      "DownstreamPathTemplate": "/api/WeatherForecast",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5051
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiB/WeatherForecast",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ApiB",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5051
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiB",
+      "UpstreamHttpMethod": [ "Get", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/ApiB/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5051
+        }
+      ],
+      "UpstreamPathTemplate": "/ApiB/{id}",
+      "UpstreamHttpMethod": [ "Get", "Put", "Delete" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:44335"
+  }
+}
+```
+
+关于配置文件中的各项具体含义，可以参考官方文档中的介绍。主要就是将DownstreamPathTemplate模板内容转换为UpstreamPathTemplate模板内容进行接口的访问，同时可以指定HTTP请求的方式等等。GlobalConfiguration中的BaseUrl为我们暴漏出去的网关地址。
+
+设置好`ocelot.json`后，需要在代码中使用它，在`Program.cs`中添加配置文件。
+
+```csharp
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+
+namespace Api_Gateway
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    config.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+                })
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}
+```
+
+在`Startup.cs`中使用`Ocelot`。
+
+```csharp
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
+namespace Api_Gateway
+{
+    public class Startup
+    {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddOcelot();
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapGet("/", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
+            });
+
+            app.UseOcelot().Wait();
+        }
+    }
+}
+```
+
+完成以上操作后，我们试着去调用接口看看能否正确获取预期数据。
+
+```bash
+curl -X GET "https://localhost:44335/ApiA"
+curl -X GET "https://localhost:44335/ApiB"
+
+curl -X POST "https://localhost:44335/ApiA" -H "Content-Type: multipart/form-data" -F "value=ApiA"
+curl -X POST "https://localhost:44335/ApiB" -H "Content-Type: multipart/form-data" -F "value=ApiB"
+
+curl -X GET "https://localhost:44335/ApiA/12345"
+curl -X GET "https://localhost:44335/ApiB/12345"
+
+curl -X PUT "https://localhost:44335/ApiA/12345" -H "Content-Type: multipart/form-data" -F "value=ApiA"
+curl -X PUT "https://localhost:44335/ApiB/12345" -H "Content-Type: multipart/form-data" -F "value=ApiB"
+
+curl -X DELETE "https://localhost:44335/ApiA/12345"
+curl -X DELETE "https://localhost:44335/ApiB/12345"
+
+curl -X GET "https://localhost:44335/ApiA/WeatherForecast"
+curl -X GET "https://localhost:44335/ApiB/WeatherForecast"
+```
+
+![ ](./images/api-gateway-04.png)
+
+可以看到，两个项目中的接口全部可以通过网关项目暴露的地址进行中转，是不是很方便？
+
+本篇只是简单的运用，对于`Ocelot`的功能远不止于此，它非常强大，还可以实现请求聚合、服务发现、认证、鉴权、限流熔断、并内置了负载均衡器，而且这些功能都是只需要简单的配置即可完成。就不一一描述了，如有实际开发需求和问题，可以查看官方文档和示例。

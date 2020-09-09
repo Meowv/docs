@@ -66,6 +66,9 @@
 // 查询集群的磁盘状态
 GET _cat/allocation?v
 
+// 获取所有索引
+GET _cat/indices
+
 // 按索引数量排序
 GET _cat/indices?s=docs.count:desc
 GET _cat/indices?v&s=index
@@ -78,7 +81,7 @@ GET _cluster/health?pretty=true
 GET _cat/indices/*?v&s=index
 
 //获取指定索引的分片信息
-GET visitlogs_1006/_search_shards
+GET logs/_search_shards
 
 ...
 ```
@@ -111,7 +114,7 @@ curl -s -XGET 'http://<host>:9200/_cluster/health?pretty'
 ## 检索文档
 
 ```json
-POST visitlogs_1003/_search
+POST logs/_search
 {
   "query":{
     "range":{
@@ -133,7 +136,7 @@ POST visitlogs_1003/_search
   }
 }
 
-POST visitlogs_1003/_search
+POST logs/_search
 {
   "query":{
     "range":{
@@ -155,7 +158,7 @@ POST visitlogs_1003/_search
   }
 }
 
-POST visitlogs_1001/_search
+POST logs/_search
 {
   "query":{
     "range": {
@@ -181,7 +184,7 @@ POST visitlogs_1001/_search
   }
 }
 
-POST visitlogs_1003/_search
+POST logs/_search
 {
   "size" : 0,
   "aggs":{
@@ -207,7 +210,7 @@ POST visitlogs_1003/_search
   }
 }
 
-POST visitlogs_1001/_search
+POST logs/_search
 {
   "size" : 0,
   "aggs":{
@@ -225,10 +228,10 @@ POST visitlogs_1001/_search
 
 ```bash
 // 删除
-POST visitlogs_1001/_delete_by_query {"query":{"match_all": {}}}
+POST logs/_delete_by_query {"query":{"match_all": {}}}
 
 // 删除索引
-DELETE visitlogs_1001
+DELETE logs
 ```
 
 ## 创建索引
@@ -309,7 +312,7 @@ elasticdump 命令其他参数使用参考 [Elasticdump Options](https://github.
 
 ```json
 //https://www.elastic.co/guide/en/elasticsearch/reference/5.6/search-request-search-after.html
-GET visitlogs_1001/_search
+GET logs/_search
 {
   "from":9990,
   "size":10,
@@ -331,7 +334,7 @@ GET visitlogs_1001/_search
     ]
 }
 
-GET visitlogs_1001/_search
+GET logs/_search
 {
   "from":-1,
   "size":10,

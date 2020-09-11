@@ -468,6 +468,7 @@ module.exports = {
                 {
                     title: 'Other',
                     children: [
+                        'other/smart-questions',
                         'other/why-is-kafka-so-fast',
                         'other/kafka-install',
                         'other/nginx',

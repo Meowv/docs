@@ -1,10 +1,10 @@
 ---
 home: true
 heroImage: /head.png
-heroText: Personal Document Library
-tagline: This is a personal document library for development work.
-actionText: null
-actionLink: null
+heroText: Documents
+tagline: Cease to struggle and you cease to live.
+actionText: 看看这里都有啥 ➡
+actionLink: /aspnetcore/abp-blog/
 features: null
 footer: MIT Licensed | Copyright © 2020 阿星Plus
 ---

@@ -244,7 +244,7 @@ module.exports = {
                 link: '/summary/'
             },
             {
-                text: '🌈Tools',
+                text: '⚙️Tools',
                 items: toolMenu
             },
             {

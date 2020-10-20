@@ -670,6 +670,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                'from-college-to-work',
                 'COVID-19-battle-summary',
                 "2019-summary",
                 "2018-summary",

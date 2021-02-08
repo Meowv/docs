@@ -162,6 +162,7 @@ module.exports = {
     port: '90',
     head: head,
     plugins: [
+        'cursor-effects',
         '@vuepress/back-to-top',
         '@vuepress/nprogress',
         'vuepress-plugin-smooth-scroll',

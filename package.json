@@ -16,6 +16,7 @@
     "@vuepress/plugin-medium-zoom": "^1.5.3",
     "@vuepress/plugin-nprogress": "^1.5.3",
     "vuepress": "^1.5.3",
+    "vuepress-plugin-cursor-effects": "^1.0.0",
     "vuepress-plugin-smooth-scroll": "0.0.9"
   },
   "scripts": {

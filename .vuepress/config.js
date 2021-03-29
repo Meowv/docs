@@ -671,6 +671,8 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2021-0329-0409-summary',
+                '2021-0312-0326-summary',
                 '2020-summary',
                 'from-college-to-work',
                 'COVID-19-battle-summary',

@@ -671,6 +671,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                'erp-code-specification-summary',
                 '2021-mingyuanyun-summary',
                 '2020-summary',
                 'from-college-to-work',

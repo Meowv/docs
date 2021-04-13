@@ -1,117 +1,3 @@
-const toolMenu = [
-    {
-        text: 'Iconfont-阿里巴巴矢量图标库',
-        link: 'https://www.iconfont.cn/'
-    },
-    {
-        text: '让微信排版变 Nice',
-        link: 'https://www.mdnice.com/'
-    },
-    {
-        text: 'ProcessOn - 免费在线作图，思维导图，流程图，实时协作',
-        link: 'https://www.processon.com/'
-    },
-    {
-        text: 'try.dot.net',
-        link: 'https://try.dot.net/'
-    },
-    {
-        text: '腾讯翻译君 - 在线翻译',
-        link: 'https://fanyi.qq.com/'
-    },
-    {
-        text: '在线工具 - 程序员的工具箱',
-        link: 'https://tool.lu/'
-    },
-    {
-        text: '独特工具箱：免费的在线工具网站',
-        link: 'https://www.dute.org/'
-    },
-    {
-        text: '九蛙工具箱-网名昵称,特殊符号,微信小工具在线生成',
-        link: 'https://www.jiuwa.net/'
-    },
-    {
-        text: '云盘精灵',
-        link: 'https://www.yunpanjingling.com/'
-    },
-    {
-        text: '聚合图床 - 免费无限图片上传, 一键分发, 多处备份',
-        link: 'https://www.superbed.cn/'
-    },
-    {
-        text: '路过图床 - 免费图片上传, 专业图片外链, 免费公共图床',
-        link: 'https://imgchr.com/'
-    },
-    {
-        text: 'Json在线解析格式化-Json在线校验Json格式化压缩-Jsons在线工具',
-        link: 'http://www.jsons.cn/'
-    },
-    {
-        text: '免费内网穿透_免费端口映射',
-        link: 'https://www.natfrp.com/'
-    },
-    {
-        text: 'NATAPP-内网穿透 基于ngrok的国内高速内网映射工具',
-        link: 'https://natapp.cn/'
-    },
-    {
-        text: 'fastmock在线接口Mock平台',
-        link: 'https://www.fastmock.site/'
-    },
-    {
-        text: '腾讯文档',
-        link: 'https://docs.qq.com/'
-    },
-    {
-        text: 'Google 文档',
-        link: 'https://docs.google.com/'
-    },
-    {
-        text: '有道云笔记',
-        link: 'https://note.youdao.com/'
-    },
-    {
-        text: 'Awesome Wallpapers',
-        link: 'https://wallhaven.cc/'
-    },
-    {
-        text: '1.8 million+ Stunning Free Images to Use Anywhere - Pixabay',
-        link: 'https://pixabay.com/'
-    },
-    {
-        text: '在线音视频转换器',
-        link: 'https://www.media.io/'
-    },
-    {
-        text: 'Smallpdf.com – 您所有PDF问题的免费解决方案',
-        link: 'https://smallpdf.com/'
-    },
-    {
-        text: '免费在线文件转换器',
-        link: 'https://cn.office-converter.com/'
-    },
-    {
-        text: '免费在线图片压缩、GIF压缩工具、PDF压缩工具、PDF合并工具、PDF分割工具',
-        link: 'https://docsmall.com/'
-    },
-    {
-        text: '读光',
-        link: 'https://duguang.aliyun.com/'
-    },
-    {
-        text: '消除图片中的背景 – remove.bg',
-        link: 'https://www.remove.bg/'
-    },
-    {
-        text: '在线PS',
-        link: 'https://ps.gaoding.com/'
-    },
-    {
-        text: 'Table Convert Online',
-        link: 'https://tableconvert.com/'
-    }
-];
 const head = [
     ['script', {}, `var _mtac = {"senseQuery":1};(function() { var mta = document.createElement("script");mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";mta.setAttribute("name", "MTAH5");mta.setAttribute("sid", "500727760");mta.setAttribute("cid", "500727761");var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(mta, s); })();`],
     ['script', { src: '/live2d/L2Dwidget.min.js' }],
@@ -245,23 +131,15 @@ module.exports = {
                 link: '/summary/'
             },
             {
-                text: '⚙️Tools',
-                items: toolMenu
-            },
-            {
                 text: '👍阿星Plus',
                 items: [
-                    {
-                        text: 'docs.meowv.com',
-                        link: 'https://docs.meowv.com/'
-                    },
                     {
                         text: 'meowv.com',
                         link: 'https://meowv.com/'
                     },
                     {
-                        text: 'blazor.meowv.com',
-                        link: 'https://blazor.meowv.com/'
+                        text: 'docs.meowv.com',
+                        link: 'https://docs.meowv.com/'
                     },
                     {
                         text: '阿星Plus - 博客园',
@@ -278,10 +156,6 @@ module.exports = {
                     {
                         text: 'api.meowv.com',
                         link: 'https://api.meowv.com/'
-                    },
-                    {
-                        text: 'api2.meowv.com',
-                        link: 'https://api2.meowv.com/'
                     },
                     {
                         text: 'NuGet Gallery | qix',
@@ -655,8 +529,16 @@ module.exports = {
                     ]
                 },
                 {
+                    title: 'Planning Analytics',
+                    children: [
+                        'pa/rules-functions',
+                        'pa/turbointegrator-functions'
+                    ]
+                },
+                {
                     title: 'Other',
                     children: [
+                        'other/erp-code-specification-summary',
                         'other/smart-questions',
                         'other/why-is-kafka-so-fast',
                         'other/kafka-install',
@@ -671,7 +553,6 @@ module.exports = {
                 },
             ],
             '/summary/': [
-                'erp-code-specification-summary',
                 '2021-mingyuanyun-summary',
                 '2020-summary',
                 'from-college-to-work',

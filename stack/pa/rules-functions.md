@@ -799,3 +799,475 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 多维数据集 SalesCube 包含五个维度：帐户 1、实际与预算、型号、月份和区域。此示例返回 SalesCube 的第三个维度型号。
 
 ## 元素信息规则函数
+
+### ELCOMP
+
+`ELCOMP` 返回指定维度中合并元素的子项的名称。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELCOMP(dimension, element, position)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element | 维度中合并元素的名称。 |
+| position | 一个小于或等于指定元素中子项总数的正值。 |
+
+示例：`ELCOMP('Region','Central Europe',2)`
+
+在维度区域中，合并元素中欧是子项法国和德国的合并。德国位于此合并中的第二个位置。因此，此示例返回德国。
+
+### ELCOMPN
+
+`ELCOMPN` 将返回指定元素中的组件数。如果 element 参数不是合并元素，那么函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELCOMPN(dimension, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element | 维度中合并元素的名称。 |
+
+示例：`ELCOMPN('Region','Scandinavia')`
+
+在 Region 维度中，元素 Scandanavia 是三个元素的合并。此示例返回 3。
+
+### ElementComponent
+
+`ElementComponent` 用于返回指定维度中合并元素的子项的名称。如果 element 参数不是合并元素，那么函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementComponent(dimension, hierarchy, element, position)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中合并元素的名称。 |
+| position | 一个小于或等于指定元素中子项总数的正值。 |
+
+示例：`ElementComponent('Region', 'Europe', 'Central Europe', 2)`
+
+在维度区域中，合并元素中欧是子项法国和德国的合并。德国位于此合并中的第二个位置。因此，此示例返回德国。
+
+### ElementComponentCount
+
+`ElementComponentCount` 用于返回指定元素中的组件数。如果 element 参数不是合并元素，那么函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementComponentCount(dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中合并元素的名称。 |
+
+示例：`ElementComponentCount('Region', '', 'Scandinavia')`
+
+在 Region 维度中，元素 Scandanavia 是三个元素的合并。此示例返回 3。
+
+### ElementCount
+
+`ElementCount` 用于返回指定维度中的元素数。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementCount(dimension, hierarchy)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+
+示例：`ElementCount('Accounts', 'Receivables')`
+
+如果 Accounts 维度中的 Receivables 层级包含 19 个元素，那么此示例返回值 19。
+
+### ElementFirst
+
+`ElementFirst` 用于返回指定维度的第一个元素。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementFirst(server_name:dimension, hierarchy)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+
+示例：`ElementFirst("planning_sample:Location", "North America")`
+
+如果 Location 维度的 North America 层级包含已排序的元素 California、Oregon 和 Washington，那么此示例返回 California。
+
+### ElementIndex
+
+`ElementIndex` 返回元素在维度中的索引号。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementIndex(server_name:dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 由服务器名称限定的有效维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。如果元素不是指定维度的成员，那么此函数返回 0。 |
+
+示例：`ElementIndex('planning_sample:Region', 'South America', 'Brazil')`
+
+Brazil 在区域维度中的索引值为 3。此示例返回 3。
+
+### ElementIsAncestor
+
+`ElementIsAncestor` 用于确定指定维度中 element1 是否为 element2 的祖代。如果 element1 是 element2 的祖代，那么此函数返回 1；否则，此函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementIsAncestor(dimension, hierarchy, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+示例：`ElementIsAncestor('Region', 'Western', 'Europe', 'Germany')`
+
+在 Region 维度的 Western 层级中，元素 Europe 是 Germany 的祖代。此示例将返回 1。
+
+### ElementIsComponent
+
+`ElementIsComponent` 用于确定指定维度中 element1 是否为 element2 的子项。如果 element1 是 element2 的子项，那么此函数返回 1；否则，此函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementIsComponent(dimension, hierarchy, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+示例：`ElementIsComponent('Region', 'Countries', 'Germany', 'Central Europe')`
+
+在维度区域中，元素中欧是德国和法国两个元素的合并。此示例将返回 1。
+
+> 注： 仅对于直接子项，此函数才会返回 1。在上面的示例中，德国是中欧的子项。而且中欧是欧洲的子项。
+
+但是，由于此函数仅对直接子项返回 1，因此下面的示例返回 0：
+
+`ElementIsComponent('Region', 'Countries'', 'Germany', 'Europe')`
+
+### ElementIsParent
+
+`ElementIsParent` 用于确定指定维度中 element1 是否为 element2 的父项。如果 element1 是 element2 的父项，那么此函数返回 1；否则，此函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementIsParent(dimension, hierarchy, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+示例：`ElementIsParent('Region', 'Countries', 'Central Europe', 'Germany')`
+
+在维度区域中，合并元素中欧是德国和法国二者的父项。因此，此示例返回 1。
+
+> 注： 仅对于直接父项，此函数才会返回 1。在上面的示例中，欧洲是中欧的父项。而且中欧是德国的父项。
+
+但是，由于欧洲不是德国的直接父项，因此下面的示例返回 0：
+
+`ElementIsParent('Region', 'Countries', 'Europe', 'Germany')`
+
+### ElementLevel
+
+`ElementLevel` 用于返回元素在维度中的级别。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementLevel(dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。 |
+
+示例：`ElementLevel('Region','Countries', 'Europe')`
+
+在区域维度中，各个国家/地区（级别 0）构成区域（级别 1）。然后地区构成高级地区（级别 2），后者又构成全世界（级别 3）。此示例返回 2，因为欧洲是级别 2 元素。
+
+### ElementName
+
+`ElementName` 用于返回维度中对应于 index 参数的元素。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementName(server_name:dimension, hierarchy, index)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 由服务器名称限定的有效维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| index | 一个小于或等于维度中元素数的值。如果此参数小于 1 或大于维度中的元素数目，那么此函数返回 0。 |
+
+示例：`ElementName(planning_sample:'Region', 'Countries', 2)`
+
+此示例返回“Belgium”，它是 Region 维度的 Countries 层级中索引值为 2 的元素。
+
+### ElementNext
+
+`ElementNext` 用于返回被指定为函数参数的元素之后的元素名称。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementNext(dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。此参数也可以是维度元素的别名。 |
+
+示例：`ElementNext("Location","Cities", "Oregon")`
+
+如果 Location 维度包含已排序的元素 California、Oregon 和 Washington，那么此示例返回 Washington。
+
+### ElementParent
+
+`ElementParent` 用于返回指定维度中元素的父项。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementParent(dimension, hierarchy, element, index)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。 |
+| index | 一个小于或等于使用 element 参数作为子项的合并元素（父项）总数的正值。 |
+
+示例：`ElementParent('Model', 'Automobile', 'Wagon 4WD', 2)`
+
+在维度型号中，元素 Wagon 4WD 是 Total Wagons 和 Total 4WD 二者的子项。因此，Total Wagons 和 Total 4WD 二者都是 Wagon 4WD 的父项。在型号维度的结构中，先定义了 Total Wagons，然后定义了 Total 4WD。此示例返回 Total 4WD，因为它是型号维度中 Wagon 4WD 的父项的第二个实例。
+
+### ElementParentCount
+
+`ElementParentCount` 用于返回指定维度中元素的父项数。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementParentCount(dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。 |
+
+示例：`ElementParentCount('Model', 'Automobile', 'Wagon 4WD')`
+
+在型号维度中，元素 Wagon 4WD 是 Total Wagons 和 Total 4WD 二者的子项。因此，Total Wagons 和 Total 4WD 二者都是 Wagon 4WD 的父项。函数返回 2。
+
+### ElementType
+
+`ElementType` 用于返回有关指定元素的元素类型的信息。如果元素是数值元素，那么 `ElementType` 返回 N；如果元素是字符串元素，那么返回 S；如果元素是合并元素，那么返回 C。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementType(dimension, hierarchy, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element | 维度中某一元素的名称。 |
+
+示例：`ElementType('Region', 'Countries', 'Europe')`
+
+由于元素欧洲是区域维度的合并元素，因此此示例返回 C。
+
+### ElementWeight
+
+`ElementWeight` 用于返回合并元素中子项的权重。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ElementWeight(dimension, hierarchy, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+| element1 | 维度中合并元素的名称。 |
+| element2 | 合并元素子项的名称。 |
+
+示例：`ElementWeight('Account1', 'SubAccount1', 'Gross margin', 'Variable Costs')`
+
+元素“Variable Costs”是“Gross margin”的子项，其权重为 -1。以下示例将返回 -1。
+
+### ELISANC
+
+`ELISANC` 用于确定指定维度中 element1 是否是 element2 的祖代。如果 element1 是 element2 的祖代，那么此函数返回 1；否则，此函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELISANC(dimension, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+示例：`ELISANC('Region', 'Europe', 'Germany')`
+
+在维度区域中，元素欧洲是德国的祖代。此示例将返回 1。
+
+### ELISCOMP
+
+`ELISCOMP` 确定指定维度中 element1 是否是 element2 的子项。如果 element1 是 element2 的子项，那么此函数返回 1；否则，此函数返回 0。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELISCOMP(dimension, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+在维度区域中，元素中欧是德国和法国两个元素的合并。以下示例将返回 1。
+
+示例：`ELISCOMP('Region','Germany','Central Europe')`
+
+>  仅对于直接子项，此函数才会返回 1。在此示例中，德国是中欧的子项。而且中欧是欧洲的子项。
+
+但是，由于此函数仅对直接子项返回 1，因此下面的示例返回 0：
+
+`ELISCOMP('Region','Germany','Europe')`
+
+### ELISPAR
+
+`ELISPAR` 确定指定维度中 element1 是否是 element2 的父项。如果 element1 是 element2 的父项，那么此函数返回 1；否则，此函数返回 0。
+
+语法：`ELISPAR(dimension, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element1 | 维度中某一元素的名称。 |
+| element2 | 维度中某一元素的名称。 |
+
+在维度区域中，合并元素中欧是德国和法国二者的父项。因此，以下示例返回 1。
+
+示例：`ELISPAR('Region','Central Europe','Germany')`
+
+> 注： 仅对于直接父项，此函数才会返回 1。在此示例中，欧洲是中欧的父项。而且中欧是德国的父项。
+
+但是，由于欧洲不是德国的直接父项，因此下面的示例返回 0：
+
+`ELISPAR('Region','Europe','Germany')`
+
+### ELLEV
+
+`ELLEV` 返回元素在维度中的级别。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELLEV(dimension, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element | 维度中某一元素的名称。 |
+
+示例：`ELLEV('Region','Europe')`
+
+在区域维度中，各个国家/地区（级别 0）构成区域（级别 1）。然后地区构成高级地区（级别 2），后者又构成全世界（级别 3）。此示例返回 2，因为欧洲是级别 2 元素。
+
+### RLPAR
+
+`ELPAR` 返回指定维度中元素的父项。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELPAR(dimension, element, index)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element | 维度中某一元素的名称。 |
+| index | 一个小于或等于使用 element 参数作为子项的合并元素（父项）总数的正值。 |
+
+示例：`ELPAR('Model','Wagon 4WD',2)`
+
+在维度型号中，元素 Wagon 4WD 是 Total Wagons 和 Total 4WD 二者的子项。因此，Total Wagons 和 Total 4WD 二者都是 Wagon 4WD 的父项。在型号维度的结构中，先定义了 Total Wagons，然后定义了 Total 4WD。此示例返回 Total 4WD，因为它是型号维度中 Wagon 4WD 的父项的第二个实例。
+
+### ELPARN
+
+`ELPARN` 返回指定的维度中元素的父项数。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELPARN(dimension, element)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element | 维度中某一元素的名称。 |
+
+示例：`ELPARN('Model','Wagon 4WD')`
+
+在型号维度中，元素 Wagon 4WD 是 Total Wagons 和 Total 4WD 二者的子项。因此，Total Wagons 和 Total 4WD 二者都是 Wagon 4WD 的父项。函数返回 2。
+
+### ELWEIGHT
+
+`ELWEIGHT` 返回合并元素中子项的权重。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`ELWEIGHT(dimension, element1, element2)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| element1 | 维度中合并元素的名称。 |
+| element2 | 合并元素子项的名称。 |
+
+示例：`ELWEIGHT('Account1','Gross margin','Variable Costs')`
+
+元素“Variable Costs”是“Gross margin”的子项，其权重为 -1。返回 -1。
+
+### LevelCount
+
+`LevelCount` 用于返回维度中的级别数。
+
+此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+
+语法：`LevelCount(dimension, hierarchy)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| dimension | 有效的维度名称。 |
+| hierarchy | 维度中层级的名称。 |
+
+示例：`LevelCount('Region', 'Countries')`
+
+在区域维度中，各个国家/地区（级别 0）构成区域（级别 1）。然后地区构成高级地区（级别 2），后者又构成全世界（级别 3）。在区域维度中有四个级别，因此此示例返回值 4。

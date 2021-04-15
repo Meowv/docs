@@ -1395,3 +1395,56 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 示例：`HierarchyN ('model', 3);`
 
 此示例返回“CustomerTarget”，这是 model 维度中的第三个层级。
+
+## 逻辑规则函数
+
+### CONTINUE
+
+当作为规则表达式的一部分包括此函数时，`CONTINUE`允许执行具有相同区域定义的后续规则。通常，TM1® 只执行给定区域遇到的第一个规则。
+
+此函数在 TM1 规则和 TurboIntegrator 进程中都有效。
+
+语法：`CONTINUE`，无参数
+
+示例：
+
+```c
+['Jan']= if(!region @= 'Argentina',10,CONTINUE);
+['Jan']=20;
+```
+
+在此示例中，所有由 January 和 Argentina 标识的单元格都将被赋以值 10。由 Jan 和任何其他地区元素标识的单元格都将被赋以值 20。
+
+### IF
+
+如果您指定的逻辑表达式为 `TRUE`，那么 `IF` 返回一个值；如果为 `FALSE`，那么此函数返回另一个值。
+
+此函数仅在 TM1® 规则中有效。
+
+TurboIntegrator 使用其自己的 `IF` 函数，该函数能够计算多个逻辑表达式。
+
+语法：`IF(expression, true_value, false_value)`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| expression | 可以计算为 TRUE 或 FALSE 的任何值或表达式。 |
+| true_value | expression 为 TRUE 时返回的值。 |
+| false_value | expression 为 FALSE 时返回的值。 |
+
+示例：
+
+`IF(1<2, 4, 5)` 返回 4。
+
+`IF(1>2, 'ABC', 'DEF')` 返回“DEF”。
+
+### STET
+
+`STET` 函数将取消某个规则对特定元素的作用。
+
+这是 TM1® 规则函数，仅在 TM1 规则中有效。此函数不能用于 TurboIntegrator 进程。
+
+语法：`STET`，无参数
+
+示例：`['Sales'] = IF(!Region @= 'France',STET, 100);`
+
+在此示例中，规则规定 Sales 的值始终为 100，但 Sales 和区域维度中的元素法国的交集除外。

@@ -42,7 +42,7 @@
 
 ### ATTRN
 
-`ATTRN` 返回某一指定维度元素的数值属性。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ATTRN` 返回某一指定维度元素的数值属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ATTRN(dimension, element, attribute)`
 
@@ -71,7 +71,7 @@ ENDIF;
 
 ### ATTRS
 
-`ATTRS` 返回某一指定维度元素的字符串属性。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ATTRS` 返回某一指定维度元素的字符串属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ATTRS(dimension, element, attribute)`
 
@@ -87,7 +87,7 @@ ENDIF;
 
 ### CubeATTRN
 
-`CubeATTRN` 返回某一指定多维数据集的数值属性。此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+`CubeATTRN` 返回某一指定多维数据集的数值属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`CubeATTRN(CubeName, AttrName);`
 
@@ -102,7 +102,7 @@ ENDIF;
 
 ### CubeATTRS
 
-`CubeATTRS` 返回某一指定多维数据集的字符串属性。此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+`CubeATTRS` 返回某一指定多维数据集的字符串属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`CubeATTRS(CubeName, AttrName);`
 
@@ -117,7 +117,7 @@ ENDIF;
 
 ### DimensionATTRN
 
-`DimensionATTRN` 返回某一指定维度的数值属性。此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+`DimensionATTRN` 返回某一指定维度的数值属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DimensionATTRN(DimName, AttrName);`
 
@@ -132,7 +132,7 @@ ENDIF;
 
 ### DimensionATTRS
 
-`DimensionATTRS` 返回某一指定维度的字符串属性。此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+`DimensionATTRS` 返回某一指定维度的字符串属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DimensionATTRS(DimName, AttrName);`
 
@@ -147,7 +147,7 @@ ENDIF;
 
 ### ElementAttrN
 
-`ElementAttrN` 返回维度的指定元素的数值属性。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ElementAttrN` 返回维度的指定元素的数值属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ElementAttrN(dimension, hierarchy, element, attribute)`
 
@@ -177,7 +177,7 @@ ENDIF;
 
 ### ElementAttrS
 
-`ElementAttrS` 用于返回维度的指定元素的字符串属性。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ElementAttrS` 用于返回维度的指定元素的字符串属性。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ElementAttrS(dimension, hierarchy, element, attribute)`
 
@@ -196,7 +196,7 @@ ENDIF;
 
 ### ConsolidatedAvg
 
-`ConsolidatedAvg` 用于计算合并中的平均值并返回单一值。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ConsolidatedAvg` 用于计算合并中的平均值并返回单一值。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ConsolidatedAvg(flag-value, cube-name, element_1, element_2,… );`
 
@@ -208,10 +208,10 @@ ENDIF;
     - `2` - 忽略零值。如果设置此值，那么计算中不会包括零值。
 - cube-name 
     - 值所在的多维数据集的名称。
-    - 如果函数作为多维数据集规则的一部分运行，而不是作为 TurboIntegrator 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedAvg( 0, '', !actvsbud, '1 Quarter' );`
+    - 如果函数作为多维数据集规则的一部分运行，而不是作为 `TurboIntegrator` 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedAvg( 0, '', !actvsbud, '1 Quarter' );`
 - element_1, element_2, … 
     - 维度元素名称，用于定义包含要检索的值的多维数据集的交集。
-    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集内第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 TurboIntegrator 变量的名称。
+    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集内第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 `TurboIntegrator` 变量的名称。
 
 示例：在名为 Income Statement 的多维数据集内包含三个维度：Regions、Time 和 Income Statement，Income Statement 维度包含名为 Gross Sales（表示总体销售额）的元素。要计算 2010 年所有区域内的平均销售额，可编写：
 
@@ -229,7 +229,7 @@ ENDIF;
 
 ### ConsolidatedCount
 
-`ConsolidatedCount` 计算合并中的值并返回单一值。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ConsolidatedCount` 计算合并中的值并返回单一值。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ConsolidatedCount(flag-value, cube-name, element_1, element_2,… );`
 
@@ -239,14 +239,14 @@ ENDIF;
         > 注： 如果已指定零作为某些合并元素的加权，那么这些元素的配置参数必须设置为 `ZeroWeightOptimization=F` 才能包括到这些函数的计算中。如果没有此配置参数，那么加权为零的元素将从合并列表中清除，并且因而不会在发现事物线最大或最小值时进行处理。
 - cube-name
     - 值所在的多维数据集的名称。
-    - 如果函数作为多维数据集规则的一部分运行，而不是作为 TurboIntegrator 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedCount( 1, '', !actvsbud, '1 Quarter' );`
+    - 如果函数作为多维数据集规则的一部分运行，而不是作为 `TurboIntegrator` 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedCount( 1, '', !actvsbud, '1 Quarter' );`
 - element_1, element_2, …
     - 维度元素名称，用于定义包含要检索值的多维数据集的交集。
-    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 TurboIntegrator 变量的名称。
+    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 `TurboIntegrator` 变量的名称。
 
 ### ConsolidatedCountUnique
 
-`ConsolidatedCountUnique` 用于计算指定合并中实际存在数据点的唯一元素数目。将统计合并单元格的一个维度中的唯一元素数目。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ConsolidatedCountUnique` 用于计算指定合并中实际存在数据点的唯一元素数目。将统计合并单元格的一个维度中的唯一元素数目。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ConsolidatedCountUnique( 0, unique-along-dimension-name, cube-name,elem_1, elem_2, . . . );`
 
@@ -256,7 +256,7 @@ ENDIF;
 
 ### ConsolidatedMax
 
-`ConsolidatedMax` 计算合并中的最大值并返回单一值。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ConsolidatedMax` 计算合并中的最大值并返回单一值。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ConsolidatedMax(flag-value, cube-name, element_1, element_2,… );`
 
@@ -266,10 +266,10 @@ ENDIF;
         > 注： 如果已指定零作为某些合并元素的加权，那么这些元素的配置参数必须设置为 `ZeroWeightOptimization=F` 才能包括到这些函数的计算中。如果没有此配置参数，那么加权为零的元素将从合并列表中清除，并且因而不会在发现事物线最大或最小值时进行处理。
 - cube-name
     - 值所在的多维数据集的名称。
-    - 如果函数作为多维数据集规则的一部分运行，而不是作为 TurboIntegrator 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedMax( 1, '', !actvsbud, '1 Quarter' );`
+    - 如果函数作为多维数据集规则的一部分运行，而不是作为 `TurboIntegrator` 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedMax( 1, '', !actvsbud, '1 Quarter' );`
 - element_1, element_2, …
     - 维度元素名称，用于定义包含要检索值的多维数据集的交集。
-    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 TurboIntegrator 变量的名称。
+    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 `TurboIntegrator` 变量的名称。
 
 示例：考虑一个称为“损益表”的多维数据集，它具有三个维度：“区域”、“时间”和“损益表”。损益表维度包含称为“总销售”（表示总体销售额）的元素。要计算 2010 年所有地区内的平均销售，可使用：
 
@@ -277,7 +277,7 @@ ENDIF;
 
 ### ConsolidatedMin
 
-`ConsolidatedMin` 计算合并中的最小值并返回单一值。此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+`ConsolidatedMin` 计算合并中的最小值并返回单一值。此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ConsolidatedMin(flag-value, cube-name, element_1, element_2,… );`
 
@@ -287,16 +287,16 @@ ENDIF;
         > 注： 如果已指定零作为某些合并元素的加权，那么这些元素的配置参数必须设置为 `ZeroWeightOptimization=F` 才能包括到这些函数的计算中。如果没有此配置参数，那么加权为零的元素将从合并列表中清除，并且因而不会在发现事物线最大或最小值时进行处理。
 - cube-name
     - 值所在的多维数据集的名称。
-    - 如果函数作为多维数据集规则的一部分运行，而不是作为 TurboIntegrator 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedMin( 1, '', !actvsbud, '1 Quarter' );`
+    - 如果函数作为多维数据集规则的一部分运行，而不是作为 `TurboIntegrator` 进程的一部分运行，那么可以将 cube-name 参数指定为空字符串，以表示当前多维数据集。这意味着您可编写类似以下内容的规则：`['Apr']=ConsolidatedMin( 1, '', !actvsbud, '1 Quarter' );`
 - element_1, element_2, …
     - 维度元素名称，用于定义包含要检索值的多维数据集的交集。
-    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 TurboIntegrator 变量的名称。
+    - 参数 element_1 到 element_n 区分顺序。element_1 必须是多维数据集中第一个维度中的元素，element_2 必须是第二个维度中的元素，依此类推。这些参数也可以是维度元素的别名或 `TurboIntegrator` 变量的名称。
 
 ## 多维数据集数据规则函数
 
 ### CellValueN
 
-`CellValueN` 用于返回多维数据集内指定元素的数字值。这是 TM1® 规则函数，仅在 TM1 规则中有效。在 TurboIntegrator 进程中使用此函数会引起错误。
+`CellValueN` 用于返回多维数据集内指定元素的数字值。这是 TM1® 规则函数，仅在 TM1 规则中有效。在 `TurboIntegrator` 进程中使用此函数会引起错误。
 
 对于不在元素参数中的维度，将从规则目标（正在检索并触发规则求值的单元格）中检索坐标。此函数的行为类似于在规则右侧使用的多维数据集内引用表达式（例如，`[ 'Measures':'Count' ]`）。
 
@@ -321,7 +321,7 @@ ENDIF;
 
 ### CellValueS
 
-`CellValueS` 用于返回多维数据集内指定元素的字符串值。这是 TM1® 规则函数，仅在 TM1 规则中有效。在 TurboIntegrator 进程中使用此函数会引起错误。
+`CellValueS` 用于返回多维数据集内指定元素的字符串值。这是 TM1® 规则函数，仅在 TM1 规则中有效。在 `TurboIntegrator` 进程中使用此函数会引起错误。
 
 对于不在元素参数中的维度，将从规则目标（正在检索并触发规则求值的单元格）中检索坐标。此函数的行为类似于在规则右侧使用的多维数据集内引用表达式（例如，`[ 'Measures':'Count' ]`）。
 
@@ -348,7 +348,7 @@ ENDIF;
 
 `DB` 返回 TM1® 数据库中某个多维数据集内的值。用于数字表达式中时，`DB` 返回一个数值；用于字符串表达式中时，它返回一个字符串值。
 
-`DB` 是 TM1 规则函数，仅在 TM1 规则中有效。在 TurboIntegrator 进程中使用此函数会引起错误。
+`DB` 是 TM1 规则函数，仅在 TM1 规则中有效。在 `TurboIntegrator` 进程中使用此函数会引起错误。
 
 语法：`DB(cube, e1, e2, [...e256])`
 
@@ -372,7 +372,7 @@ ENDIF;
 
 此函数仅在 TM1® 规则中有效。
 
-`ISLEAF` 函数不能用于 TurboIntegrator 进程。进程中出现此函数将会阻止进程进行编译。
+`ISLEAF` 函数不能用于 `TurboIntegrator` 进程。进程中出现此函数将会阻止进程进行编译。
 
 语法：`ISLEAF`，无参数
 
@@ -384,7 +384,7 @@ ENDIF;
 
 `ISUNDEFINEDCELLVALUE` 将传递的值与缺省数字多维数据集值（受该多维数据集的规则中是否存在 `UNDEFVALS` 声明影响）进行比较。如果传递的值等于多维数据集的缺省值，那么该函数将返回1 ；否则，该函数将返回0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`ISUNDEFINEDCELLVALUE(TestValue, <Cube>)`
 
@@ -405,7 +405,7 @@ ENDIF;
 
 `UNDEF` 返回未定义的值。此函数可用于防止数据存储在基于逻辑测试的多维数据集中。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`UNDEF`，无参数
 
@@ -413,7 +413,7 @@ ENDIF;
 
 `UNDEFINEDCELLVALUE` 将返回缺省数字多维数据集值，该值受该多维数据集的规则中是否存在 `UNDEFVALS` 声明影响。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`UNDEFINEDCELLVALUE(<Cube>)`
 
@@ -450,9 +450,9 @@ ENDIF;
 - 数据检索
     - 对于未在规则中指定 `UNDEFVALS` 的多维数据集而言，缺省值为零。检索单元格时，如果在多维数据集中当前没有为该值存储任何值，那么将返回零（作为缺省值）。这意味着应用程序无法判断单元格实际是否存在并且将零包含为单格值，也无法判断单元格是否不存在（因为可能存在包含稀疏数据的情况）。
     - 但是，如果此多维数据集在规则中定义了 `UNDEFVALS`，那么缺省值将是未定义的特殊值。在这种情况下，检索不存在的单元格时，检索到的值将是这个未定义的特殊值。这可用于区分不存在的单元格（返回未定义的特殊值）与存在但值为零的单元格（返回零）。编写用于针对 TM1 运行的任何客户端可能会遇到已设置 `UNDEFVALS` 的多维数据集，因此必须预编译为处理单元格值，即这个未定义的特殊值，而不是处理零。
-        > 注： 这个未定义的特殊值并不是 TurboIntegrator 函数 UNDEF() 所返回的值。UNDEF() 返回的值是一个未定义的值，用于尝试除零或者计算非法数字的对数之类的情况。
+        > 注： 这个未定义的特殊值并不是 `TurboIntegrator` 函数 UNDEF() 所返回的值。UNDEF() 返回的值是一个未定义的值，用于尝试除零或者计算非法数字的对数之类的情况。
 
-在 TurboIntegrator 中，对于正常的算术运算（`+、-、*、/、\、^`）和正常的算术比较（`<、>、>=、<=、=、<>`），未定义的特殊值均被视为零。为此，以下代码不起作用：
+在 `TurboIntegrator` 中，对于正常的算术运算（`+、-、*、/、\、^`）和正常的算术比较（`<、>、>=、<=、=、<>`），未定义的特殊值均被视为零。为此，以下代码不起作用：
 
 ```c
 NoCellVal = UndefinedCellValue( 'cube-name' );
@@ -461,7 +461,7 @@ If ( vv = NoCellVal );
 
 在此比较中，NoCellVal（即 `UNDEFVALS` 多维数据集的特殊的未定义值）被视为零。这意味着比较实际上是 `If ( vv = 0)`.
 
-在 TurboIntegrator 中，必须使用 `IsUndefinedCellValue` 来测试单元格值是否为未定义的特殊值。例如：
+在 `TurboIntegrator` 中，必须使用 `IsUndefinedCellValue` 来测试单元格值是否为未定义的特殊值。例如：
 
 ```c
 vv = CellGetN( 'cube-name', elements-list);
@@ -480,7 +480,7 @@ Endif;
 
 `DATE` 将以 yy-mm-dd 或 yyyy-mm-dd 格式返回某一给定序列号的日期字符串。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`DATE(SerialNumber, ReturnFourDigitYear)`
 
@@ -504,7 +504,7 @@ Endif;
 
 `DATES` 以“yy-mm-dd”或“yyyy-mm-dd”格式返回与给定的年月日相对应的日期字符串。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`DATES(year, month, day)`
 
@@ -524,7 +524,7 @@ Endif;
 
 `DAY` 以给定日期字符串格式返回日的数字值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`DAY(DateString)`
 
@@ -538,7 +538,7 @@ Endif;
 
 `DAYNO` 将返回与给定日期字符串相对应的序列日期数字。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 > 注： `DAYNO` 能够为起始于 1960 年 1 月 1 日（日期字符串 1960-01-01 或 60-01-01）的日期字符串返回序列日期。对于 2059 年 12 月 31 日以后的日期，日期字符串中的年份应使用四位数表示。例如，2061 年 1 月 5 日的日期字符串应为 2061-01-05。
 
@@ -554,7 +554,7 @@ Endif;
 
 `MONTH` 以给定日期字符串格式返回月份的数字值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`MONTH(date)`
 
@@ -568,7 +568,7 @@ Endif;
 
 `NOW` 以序列号格式返回当前日期/时间值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`NOW`，无参数
 
@@ -576,7 +576,7 @@ Endif;
 
 `TIME` 以 HH:MM 格式返回字符串，表示 TM1® Server 上的系统时间。
 
-此函数在 TM1 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`TIME`，无参数
 
@@ -590,7 +590,7 @@ Endif;
 
 `TIMST` 返回格式化的日期/时间字符串。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`TIMST(datetime, format, ExtendedYears)`
 
@@ -625,7 +625,7 @@ Endif;
 
 `TIMVL` 返回日期/时间值的组件（年份、月份等）数字值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`TIMVL(datetime, type, ExtendedYears)`
 
@@ -651,7 +651,7 @@ Endif;
 
 `TODAY` 以 yy-mm-dd 格式返回当前日期。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`TODAY(<ReturnFourDigitYear>)`
 
@@ -669,7 +669,7 @@ Endif;
 
 `YEAR` 以给定日期字符串格式返回年份的数字值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`YEAR(date)`
 
@@ -685,7 +685,7 @@ Endif;
 
 `DIMIX` 返回某一元素在维度中的索引号。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DIMIX(server_name:dimension, element)`
 
@@ -702,7 +702,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `DIMNM` 将返回对应于 index 参数的维度的元素。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`DIMNM(server_name:dimension, index)`
 
@@ -719,7 +719,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `DIMSIZ` 返回指定维度中的元素数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DIMSIZ(dimension)`
 
@@ -735,7 +735,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `DNEXT` 返回被指定为函数参数的元素之后的元素名称。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DNEXT(dimension, element)`
 
@@ -752,7 +752,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `DNLEV` 返回维度中的级别数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DNLEV(dimension)`
 
@@ -768,7 +768,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `DTYPE` 将返回有关指定元素的元素类型的信息。如果元素是数值元素，那么 `DTYPE` 返回 N；如果元素是字符串元素，那么返回 S；如果元素是合并元素，那么返回 C。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`DTYPE(dimension, element)`
 
@@ -785,7 +785,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `TABDIM` 返回对应于 index 参数的维度名称。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`TABDIM(cube, index)`
 
@@ -804,7 +804,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELCOMP` 返回指定维度中合并元素的子项的名称。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELCOMP(dimension, element, position)`
 
@@ -822,7 +822,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELCOMPN` 将返回指定元素中的组件数。如果 element 参数不是合并元素，那么函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELCOMPN(dimension, element)`
 
@@ -839,7 +839,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementComponent` 用于返回指定维度中合并元素的子项的名称。如果 element 参数不是合并元素，那么函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementComponent(dimension, hierarchy, element, position)`
 
@@ -858,7 +858,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementComponentCount` 用于返回指定元素中的组件数。如果 element 参数不是合并元素，那么函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementComponentCount(dimension, hierarchy, element)`
 
@@ -876,7 +876,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementCount` 用于返回指定维度中的元素数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementCount(dimension, hierarchy)`
 
@@ -893,7 +893,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementFirst` 用于返回指定维度的第一个元素。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementFirst(server_name:dimension, hierarchy)`
 
@@ -910,7 +910,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementIndex` 返回元素在维度中的索引号。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementIndex(server_name:dimension, hierarchy, element)`
 
@@ -928,7 +928,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementIsAncestor` 用于确定指定维度中 element1 是否为 element2 的祖代。如果 element1 是 element2 的祖代，那么此函数返回 1；否则，此函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementIsAncestor(dimension, hierarchy, element1, element2)`
 
@@ -947,7 +947,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementIsComponent` 用于确定指定维度中 element1 是否为 element2 的子项。如果 element1 是 element2 的子项，那么此函数返回 1；否则，此函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementIsComponent(dimension, hierarchy, element1, element2)`
 
@@ -972,7 +972,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementIsParent` 用于确定指定维度中 element1 是否为 element2 的父项。如果 element1 是 element2 的父项，那么此函数返回 1；否则，此函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementIsParent(dimension, hierarchy, element1, element2)`
 
@@ -997,7 +997,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementLevel` 用于返回元素在维度中的级别。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementLevel(dimension, hierarchy, element)`
 
@@ -1015,7 +1015,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementName` 用于返回维度中对应于 index 参数的元素。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementName(server_name:dimension, hierarchy, index)`
 
@@ -1033,7 +1033,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementNext` 用于返回被指定为函数参数的元素之后的元素名称。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementNext(dimension, hierarchy, element)`
 
@@ -1051,7 +1051,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementParent` 用于返回指定维度中元素的父项。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementParent(dimension, hierarchy, element, index)`
 
@@ -1070,7 +1070,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementParentCount` 用于返回指定维度中元素的父项数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementParentCount(dimension, hierarchy, element)`
 
@@ -1088,7 +1088,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementType` 用于返回有关指定元素的元素类型的信息。如果元素是数值元素，那么 `ElementType` 返回 N；如果元素是字符串元素，那么返回 S；如果元素是合并元素，那么返回 C。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementType(dimension, hierarchy, element)`
 
@@ -1106,7 +1106,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ElementWeight` 用于返回合并元素中子项的权重。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ElementWeight(dimension, hierarchy, element1, element2)`
 
@@ -1125,7 +1125,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELISANC` 用于确定指定维度中 element1 是否是 element2 的祖代。如果 element1 是 element2 的祖代，那么此函数返回 1；否则，此函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELISANC(dimension, element1, element2)`
 
@@ -1143,7 +1143,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELISCOMP` 确定指定维度中 element1 是否是 element2 的子项。如果 element1 是 element2 的子项，那么此函数返回 1；否则，此函数返回 0。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELISCOMP(dimension, element1, element2)`
 
@@ -1189,7 +1189,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELLEV` 返回元素在维度中的级别。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELLEV(dimension, element)`
 
@@ -1206,7 +1206,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELPAR` 返回指定维度中元素的父项。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELPAR(dimension, element, index)`
 
@@ -1224,7 +1224,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELPARN` 返回指定的维度中元素的父项数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELPARN(dimension, element)`
 
@@ -1241,7 +1241,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `ELWEIGHT` 返回合并元素中子项的权重。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`ELWEIGHT(dimension, element1, element2)`
 
@@ -1259,7 +1259,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `LevelCount` 用于返回维度中的级别数。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中均有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中均有效。
 
 语法：`LevelCount(dimension, hierarchy)`
 
@@ -1278,7 +1278,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `FV` 将返回最后一次付款时的年金值。年金是按相等的时间间隔支付的一系列款项。假定在每个期间末支付各个款项。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`FV(payment, interest, periods)`
 
@@ -1296,7 +1296,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `PAYMT` 根据给定的初始值或本金、利率和期间数，返回年金的付款额。年金是按相等的时间间隔支付的一系列款项。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`PAYMT(principal, interest, periods)`
 
@@ -1314,7 +1314,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 `PV` 返回年金的初始值或本金值。
 
-此函数在 TM1® 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1® 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`PV(payment, interest, periods)`
 
@@ -1402,7 +1402,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 当作为规则表达式的一部分包括此函数时，`CONTINUE`允许执行具有相同区域定义的后续规则。通常，TM1® 只执行给定区域遇到的第一个规则。
 
-此函数在 TM1 规则和 TurboIntegrator 进程中都有效。
+此函数在 TM1 规则和 `TurboIntegrator` 进程中都有效。
 
 语法：`CONTINUE`，无参数
 
@@ -1421,7 +1421,7 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 
 此函数仅在 TM1® 规则中有效。
 
-TurboIntegrator 使用其自己的 `IF` 函数，该函数能够计算多个逻辑表达式。
+`TurboIntegrator` 使用其自己的 `IF` 函数，该函数能够计算多个逻辑表达式。
 
 语法：`IF(expression, true_value, false_value)`
 
@@ -1441,7 +1441,7 @@ TurboIntegrator 使用其自己的 `IF` 函数，该函数能够计算多个逻�
 
 `STET` 函数将取消某个规则对特定元素的作用。
 
-这是 TM1® 规则函数，仅在 TM1 规则中有效。此函数不能用于 TurboIntegrator 进程。
+这是 TM1® 规则函数，仅在 TM1 规则中有效。此函数不能用于 `TurboIntegrator` 进程。
 
 语法：`STET`，无参数
 

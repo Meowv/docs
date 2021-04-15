@@ -1327,3 +1327,71 @@ Brazil 在区域维度中的索引值为 3。此示例返回 3。
 示例：`PV(1000, .14, 5)`
 
 此示例返回利率为 14% 时每年支付 1,000 美元的 5 年年金的本金值。
+
+## 层级规则函数
+
+### Hierarchy
+
+如果提供的维度中只包含一个层级，那么 `Hierarchy` 将返回该层级的名称。否则，此属性将返回空字符串。`Hierarchy` 仅在 TM1® 规则中有效。随着在 TM1 中引入了对多个层级的支持，需要在使用多个层级时，识别哪些层级处于上下文中。
+
+`Hierarchy` 不能用于 `TurboIntegrator` 进程。进程中出现此函数将会阻止进程进行编译。
+
+语法：`Hierarchy (DimName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+
+示例：`Hierarchy ('Quarter');`
+
+此示例返回“Quarter”，这是 Quarter 维度中的唯一层级。
+
+### HierarchyCount
+
+`HierarchyCount` 用于返回所提供维度中的层级数。 `HierarchyCount` 仅在 TM1® 规则中有效。
+
+`HierarchyCount` 不能用于 `TurboIntegrator` 进程。进程中出现此函数将会阻止进程进行编译。
+
+语法：`HierarchyCount (DimName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+
+示例：`HierarchyCount ('model');`
+
+此示例返回 3，这是 model 维度中的层级数。
+
+### HierarchyIndex
+
+如果层级位于提供的维度中，那么 `HierarchyIndex` 返回从 1 开始的索引，否则返回从 0 开始的索引。`HierarchyIndex` 仅在 TM1® 规则中有效。
+
+`HierarchyIndex` 不能用于 `TurboIntegrator` 进程。进程中出现此函数将会阻止进程进行编译。
+
+语法：`HierarchyIndex (DimName, HierName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| HierName | 要在 DimName 中查找其索引位置的有效层级名称。 |
+
+示例：`HierarchyIndex ('model', 'CustomerTarget');`
+
+此示例返回 3，这是 model 维度中 CustomerTarget 层级的索引位置。
+
+### HierarchyN
+
+`HierarchyN` 用于返回提供的维度中指定位置的层级名称，如果索引超出范围，那么会返回空字符串。`HierarchyN` 仅在 TM1® 规则中有效。
+
+`HierarchyN` 不能用于 `TurboIntegrator` 进程。进程中出现此函数将会阻止进程进行编译。
+
+语法：`HierarchyN (DimName, index);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| index | 一个小于或等于维度中层级数的值。如果此参数小于 1 或大于维度中的层级数目，那么此函数返回 0。 |
+
+示例：`HierarchyN ('model', 3);`
+
+此示例返回“CustomerTarget”，这是 model 维度中的第三个层级。

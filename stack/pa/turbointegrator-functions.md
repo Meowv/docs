@@ -136,3 +136,26 @@
 | ------- | ------- |
 | FileName | 您要为其指定字符集的文本文件的完整路径。路径必须包括文件扩展名。此参数应与用于 `TextOutput` 函数的 FileName 参数相同。 |
 | CharacterSet | 在写入输出文件时使用的字符编码。 |
+
+### SetOutputEscapeDoubleQuote
+
+`SetOutputEscapeDoubleQuote` 允许您在将多维数据集视图导出为 `.csv` 文件时，对出现在元素名称或数据值中的双引号进行转义。
+
+如果您的 `TurboIntegrator` 脚本中包括 `SetOutputEscapeDoubleQuote` 并且将其设为 1 时，那么导出的文件将保留在源多维数据集视图中双引号出现的位置，方法是对另一个双引号对中的每个双引号进行转义。例如，如果源视图中的元素名为“地区”，那么在 `.csv` 输出文件中该元素将以 """Region""" 的形式导出。
+
+如果您的 `TurboIntegrator` 脚本中未包括 `SetOutputEscapeDoubleQuote` 或未将其设为 0，那么导出的文件不会对源多维数据集中出现任何双引号进行转义。
+
+`SetOutputEscapeDoubleQuote` 与 `ASCIIOutput` 函数一起使用，这是实际上用于写输出文件的函数。 在 `TurboIntegrator` `脚本中，SetOutputEscapeDoubleQuote` 应在 `ASCIIOutput` 之前，两个函数均应使用相同的 FileName 参数值。
+
+语法：`SetOutputEscapeDoubleQuote(FileName, Num);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| FileName | 要向其中写入多维数据集视图的文件的完整路径。路径必须包括文件扩展名。 |
+| Num | 用于确定是否在输出文件中对双引号进行转义的标记。 |
+| | 1 指明在将输出文件中转义的双引号。 |
+| | 0 指明在输出文件中不对双引号进行转义。 |
+
+示例：`SetOutputEscapeDoubleQuote('C:\temp\cube1.csv', 1);`
+
+此示例对在将输出写到 C:\temp\cube1.csv 文件时在源多维数据集视图中碰到的任何双引号进行转义。

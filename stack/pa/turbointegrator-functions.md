@@ -171,3 +171,17 @@
 | 字符串 | 要转换为数字的字符串。 |
 
 示例：`nRET = StringToNumber('123.45');`
+
+### StringToNumberEx
+
+`StringToNumberEx` 使用传递的小数点分隔符和千位分隔符将一个字符串转换为一个数字。如果输入字符串是无效的数字字符串，那么返回值将是无效的浮点值。
+
+语法：`StringToNumberEx(String, DecimalSep, ThousandsSep);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 字符串 | 要转换为数字的字符串。 |
+| DecimalSep | 要在输出数字中使用的小数点分隔符。 |
+| ThousandsSep | 要在输出数字中使用的千位分隔符。 |
+
+示例：`nRET = StringToNumberEx('12453.45', ' . ', ' , ');`

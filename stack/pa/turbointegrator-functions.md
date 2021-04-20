@@ -86,3 +86,24 @@
 | 值 | 要转换为字符串的实值。 |
 
 示例：`nRET = NumberToString(1234.5);`
+
+### NumberToStringEx
+
+`NumberToStringEx` 使用传递的字符串格式、小数点分隔符和千位分隔符将一个数字转换为一个字符串。
+
+语法：`NumberToStringEx(Value, NumericFormat, DecimalSep, ThousandsSep);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 值 | 要转换为字符串的实值。 |
+| FormatString | TM1 数字格式字符串，用于定义函数输出格式。 |
+| DecimalSep | 要在输出字符串中使用的小数点分隔符。 |
+| ThousandsSep | 要在输出字符串中使用的千位分隔符。 |
+
+示例：
+
+`sRet=NUMBERTOSTRINGEX(7895.23,'#,0.#########', ',', '.');`
+
+`ASCIIOUTPUT('number_to_string.txt',sRet);`
+
+将返回 ascii 文件：7.895,23

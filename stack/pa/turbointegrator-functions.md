@@ -70,3 +70,19 @@
 示例：`ASCIIOutput('NewCube.cma', V1, V2, V3, V4, V5 );`
 
 此示例将一条记录写入 `ASCII` 文件 NewCube.cma。记录中的每个字段与 `TurboIntegrator` 分配到数据源中某一列的变量相对应。
+
+### NumberToString
+
+`NumberToString` 使用当前用户区域设置的小数点分隔符将一个数字转换为一个字符串。
+
+在 Microsoft Windows 中，小数点分隔符是一项“地区选项”设置。
+
+此函数的输出类似于“常规”数字格式；它不使用千位分隔符并且使用负号 (-) 表示负数。
+
+语法：`NumberToString(Value);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 值 | 要转换为字符串的实值。 |
+
+示例：`nRET = NumberToString(1234.5);`

@@ -159,3 +159,15 @@
 示例：`SetOutputEscapeDoubleQuote('C:\temp\cube1.csv', 1);`
 
 此示例对在将输出写到 C:\temp\cube1.csv 文件时在源多维数据集视图中碰到的任何双引号进行转义。
+
+### StringToNumber
+
+`StringToNumber` 使用当前用户区域设置的小数点分隔符将一个字符串转换为一个数字。如果输入字符串是无效的数字字符串，那么返回值将是无效的浮点值。在 Microsoft Windows 中，小数点分隔符是一项“地区选项”设置。
+
+语法：`StringToNumber(String);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 字符串 | 要转换为数字的字符串。 |
+
+示例：`nRET = StringToNumber('123.45');`

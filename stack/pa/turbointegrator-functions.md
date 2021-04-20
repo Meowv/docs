@@ -125,3 +125,14 @@
 示例：`SetInputCharacterSet ('TM1CS_ISO_8859_11');`
 
 此示例指定 `TurboIntegrator` 数据源的输入字符集是 ISO-8859-11 拉丁语/泰国语。
+
+### SetOutputCharacterSet
+
+`SetOutputCharacterSet` 允许您在 `TurboIntegrator` 进程中使用 `TextOutput` 写入文本文件时指定要使用的字符集。
+
+语法：`SetOutputCharacterSet( FileName, CharacterSet );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| FileName | 您要为其指定字符集的文本文件的完整路径。路径必须包括文件扩展名。此参数应与用于 `TextOutput` 函数的 FileName 参数相同。 |
+| CharacterSet | 在写入输出文件时使用的字符编码。 |

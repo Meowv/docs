@@ -107,3 +107,21 @@
 `ASCIIOUTPUT('number_to_string.txt',sRet);`
 
 将返回 ascii 文件：7.895,23
+
+### SetInputCharacterSet
+
+`SetInputCharacterSet` 函数允许您指定在 `TurboIntegrator` 数据源中使用的字符集。
+
+`TurboIntegrator` 进程读取外部文件作为输入时，该进程需要知道写入外部文件的字符集。如果该文件包含有效的字节顺序标记，那么在有需要时，TM1 函数会将该文件正确地转换为 UTF-8。
+
+对于缺少有效字节顺序标记的格式，必须将字符从某种其他编码转换为 UTF-8。如果在托管服务器的计算机上存在合适的转换程序，那么会将输入文件转换为 TM1 所要求的 Unicode 字符集。
+
+语法：`SetInputCharacterSet (CharacterSet);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| CharacterSet | 在输入文件中由 `TurboIntegrator` 进程使用的[字符编码](https://www.ibm.com/docs/zh/planning-analytics/2.0.0?topic=attf-setinputcharacterset)。如果 CharacterSet 参数是未知的字符类型，那么类型将缺省为系统语言环境。 |
+
+示例：`SetInputCharacterSet ('TM1CS_ISO_8859_11');`
+
+此示例指定 `TurboIntegrator` 数据源的输入字符集是 ISO-8859-11 拉丁语/泰国语。

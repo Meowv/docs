@@ -17,3 +17,21 @@
   - `endif`
   - `if`
   - `while`
+
+## ASCII 和文本 TurboIntegrator 函数
+
+### ASCIIDelete
+
+`ASCIIDelete` 用于删除 `ASCII` 文件。
+
+语法：`ASCIIDelete(FileName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| FileName | 要删除的 `ASCII` 文件的名称。如果未指定完整路径，TM1 将在服务器数据目录中搜索该文件。 |
+
+示例：`ASCIIDelete('C:\exported_data\2002Q1Results.cma');`
+
+此示例从 `C:\exported_data` 目录中删除名为 `2002Q1Results.cma` 的 `ASCII` 文件。
+
+### ASCIIOutput

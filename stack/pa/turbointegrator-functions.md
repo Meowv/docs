@@ -252,3 +252,18 @@
 示例：`AttrSL('Plan_Business_Unit', '10100', 'Currency', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Plan_Business_Unit 维度中 10100 元素的 Currency 属性的字符串值。
+
+### AttrDelete
+
+`AttrDelete` 删除 TM1® 数据库中的元素属性。
+
+语法：`AttrDelete(DimName, AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 要删除其元素属性的维度。 |
+| AttrName | 要删除的属性的名称。 |
+
+示例：`AttrDelete('Model', 'InteriorColor');`
+
+此示例删除型号维度的 InteriorColor 元素属性。

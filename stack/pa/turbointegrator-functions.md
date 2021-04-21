@@ -305,3 +305,21 @@
 示例：`AttrPutN(2257993, 'Model', ' S Series 1.8L Sedan ', 'ProdCode');`
 
 此示例将值 2257993 赋给型号维度中 S Series 1.8L Sedan 的 ProdCode 属性。
+
+### AttrPutS
+
+`AttrPutS` 用于向一个字符串元素属性赋值。
+
+语法：`AttrPutS(Value, DimName, ElName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 值 | 要赋给某一元素属性的值。 |
+| DimName | 要为其分配属性值的元素的父维度。 |
+| ElName | 要为其分配属性值的元素。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 Value 的语言环境代码。 |
+
+示例：`AttrPutS('Beige', 'Model', 'S Series 1.8L Sedan', 'InteriorColor');`
+
+此示例将字符串 Beige 赋给型号维度中 S Series 1.8L Sedan 的 InteriorColor 属性。

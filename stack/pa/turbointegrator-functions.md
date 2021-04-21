@@ -235,3 +235,20 @@
 示例：`ATTRNL('Model', 'L Series 1.8L Sedan', 'Engine Size', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回型号维度中 L Series 1.8L Sedan 元素的 Engine Size 属性的数字值。
+
+### ATTRSL
+
+`AttrSL` 用于返回维度的指定元素的字符串属性。
+
+语法：`AttrSL(DimName, ElName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| ElName | 维度的一个元素。 |
+| AttrName | 要检索其值的属性。此参数必须是元素的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`AttrSL('Plan_Business_Unit', '10100', 'Currency', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Plan_Business_Unit 维度中 10100 元素的 Currency 属性的字符串值。

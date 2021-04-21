@@ -287,3 +287,21 @@
 示例：`AttrInsert('Model', 'Transmission', 'InteriorColor', 'S');`
 
 此示例为型号维度创建 InteriorColor 字符串属性。此属性将插入到 Transmission 属性之后。
+
+### AttrPutN
+
+`AttrPutN` 用于向一个数值元素属性赋值。
+
+语法：`AttrPutN( Value, DimName, ElName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| 值 | 要分配给元素属性的数字值。 |
+| DimName | 要为其分配属性值的元素的父维度。 |
+| ElName | 要为其分配属性值的元素。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。有效的 LangLocaleCode 值对应于 `}Cultures` 控制维度中列出的 ISO 639-1 国际语言代码。如果未指定或者省略 LangLocaleCode，那么将更新基本属性值。 |
+
+示例：`AttrPutN(2257993, 'Model', ' S Series 1.8L Sedan ', 'ProdCode');`
+
+此示例将值 2257993 赋给型号维度中 S Series 1.8L Sedan 的 ProdCode 属性。

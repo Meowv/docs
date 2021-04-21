@@ -267,3 +267,23 @@
 示例：`AttrDelete('Model', 'InteriorColor');`
 
 此示例删除型号维度的 InteriorColor 元素属性。
+
+### AttrInsert
+
+`AttrInsert` 用于为某一维度创建新的元素属性。此函数可以创建字符串属性、数值属性或别名属性。
+
+语法：`AttrInsert(DimName, PrevAttr, AttrName, Type);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 要为其创建元素属性的维度。 |
+| PrevAttr | 所创建属性的前置属性。 |
+| AttrName | 要分配给新属性的名称。 |
+| 类型 | 属性的类型。Type 参数有三种可能的值： |
+| | N - 创建数值属性。 |
+| | S - 创建字符串属性。 |
+| | A - 创建别名属性。 |
+
+示例：`AttrInsert('Model', 'Transmission', 'InteriorColor', 'S');`
+
+此示例为型号维度创建 InteriorColor 字符串属性。此属性将插入到 Transmission 属性之后。

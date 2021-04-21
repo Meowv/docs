@@ -216,3 +216,22 @@
 示例：`TextOutput('NewCube.cma', V1, V2, V3, V4, V5 );`
 
 此示例将一条记录写入 `NewCube.cma` 文件。记录中的每个字段与 `TurboIntegrator` 分配到数据源中某一列的变量相对应。
+
+## 属性操作 TurboIntegrator 函数
+
+### ATTRNL
+
+`ATTRNL` 返回某一指定维度元素的数值属性。
+
+语法：`ATTRNL(DimName, ElName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| ElName | 维度的一个元素。 |
+| AttrName | 要检索其值的属性。此参数必须是元素的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`ATTRNL('Model', 'L Series 1.8L Sedan', 'Engine Size', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回型号维度中 L Series 1.8L Sedan 元素的 Engine Size 属性的数字值。

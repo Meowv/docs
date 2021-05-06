@@ -440,3 +440,19 @@
 示例：`ChoreAttrS('Exchange_Rate_Updates', 'Owner');`
 
 在此示例中，函数返回 Exchange_Rate_Updates 杂项的 Owner 属性的字符串值。
+
+### ChoreAttrSL
+
+`ChoreAttrSL` 返回指定杂项相对于给定语言环境的字符串属性值。
+
+语法：`ChoreAttrSL(ChoreName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| ChoreName | 有效的杂项名称。 |
+| AttrName | 要检索其值的属性。此参数必须是杂项的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`ChoreAttrSL('Depreciate_Inventory', 'Owner', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Depreciate_Inventory 杂项的 Owner 属性的字符串值。

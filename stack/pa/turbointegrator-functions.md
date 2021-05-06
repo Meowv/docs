@@ -564,3 +564,19 @@
 示例：`CubeATTRNL('Product', 'Accounting_Code', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Product 多维数据集的 Accounting_Code 属性的数字值。
+
+### CubeATTRSL
+
+`CubeATTRSL` 用于返回指定多维数据集相对于给定语言环境的字符串属性值。
+
+语法：`CubeATTRSL(CubeName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| CubeName | 一个有效的多维数据集名称。 |
+| AttrName | 要检索其值的属性。此参数必须是多维数据集的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`CubeATTRSL('Product', 'Owner', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Product 多维数据集的 Owner 属性的字符串值。

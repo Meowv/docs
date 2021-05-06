@@ -456,3 +456,24 @@
 示例：`ChoreAttrSL('Depreciate_Inventory', 'Owner', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Depreciate_Inventory 杂项的 Owner 属性的字符串值。
+
+### CreateHierarchyByAttribute
+
+`CreateHierarchyByAttribute` 从单个属性创建简单的 3 层层级。
+
+新的层级包含单个高级别根元素、代表现有属性值的中等级别合并以及包含关联属性值的低级别维度叶。
+
+> 注： 此函数会根据当前属性值集合创建层级，但系统不会在属性数据更改时使层级自动同步。建模员必须根据需要重新生成层级。
+
+语法：`CreateHierarchyByAttribute(DimName, AttrName [, emptyParent [, rootName ] ] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 包含属性的维度的名称。将创建与维度具有相同名称的层级。 |
+| AttrName | 用于创建层级的属性的名称。 |
+| emptyParent | 指定要创建的合并的名称，其会收集不具有属性值的维度叶。如果作为空字符串传递，那么该函数不会创建合并。 |
+| rootName | 覆盖根元素名称，该名称缺省情况下根据属性而命名。 |
+
+示例：`CreateHierarchyByAttribute ('Country', 'City');`
+
+此示例根据 Country 维度中的 City 属性创建层级。

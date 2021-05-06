@@ -511,6 +511,40 @@
 | | S - 创建字符串属性。 |
 | | A - 创建别名属性。 |
 
-语法：`CubeAttrInsert('Owner', 'Description', 'S');`
+示例：`CubeAttrInsert('Owner', 'Description', 'S');`
 
 此示例创建多维数据集的 Description 字符串属性。此属性在 Owner 属性之后插入。
+
+### CubeAttrPutN
+
+`CubeAttrPutN` 向数字多维数据集属性分配值。
+
+语法：`CubeAttrPutN(NumericValue, CubeName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| NumericValue | 要分配给多维数据集属性的值。 |
+| CubeName | 要分配属性值的多维数据集。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。 |
+
+示例：`CubeAttrPutN(07161994, 'Sales', 'AccountingCode','fr');`
+
+此示例将值 07161994 分配给“销售”多维数据集的 AccountingCode 属性以表示“法语”语言环境代码。
+
+### CubeAttrPutS
+
+`CubeAttrPutS` 将值分配给字符串多维数据集属性。
+
+语法：`CubeAttrPutS(String, CubeName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| String | 要分配给多维数据集属性的字符串。 |
+| CubeName | 要分配属性值的多维数据集。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 String 的语言环境代码。 |
+
+示例：`CubeAttrPutS('Prototype', 'Sales', 'Description','fr');`
+
+此示例将字符串值 Prototype 分配给“销售”多维数据集的 Description 属性，以表示“法语”语言环境代码。

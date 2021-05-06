@@ -375,3 +375,19 @@
 示例：`ChoreAttrN('Import', 'Division_Code');`
 
 在此示例中，函数返回 Import 杂项的 Division_Code 属性的数字值。
+
+### ChoreAttrNL
+
+`ChoreAttrNL` 用于返回指定杂项相对于给定语言环境的属性数字值。
+
+语法：`ChoreAttrNL(ChoreName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| ChoreName | 有效的杂项名称。 |
+| AttrName | 要检索其值的属性。此参数必须是杂项的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`ChoreAttrNL('Import', 'Division_Code', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Import 杂项的 Division_Code 属性的数字值。

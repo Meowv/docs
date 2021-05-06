@@ -477,3 +477,17 @@
 示例：`CreateHierarchyByAttribute ('Country', 'City');`
 
 此示例根据 Country 维度中的 City 属性创建层级。
+
+### CubeAttrDelete
+
+`CubeAttrDelete` 删除 TM1® 数据库中的多维数据集属性。
+
+语法：`CubeAttrDelete(AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| AttrName | 想要删除的多维数据集属性的名称。 |
+
+示例：`CubeAttrDelete('Description');`
+
+此示例删除 TM1 Server 上多维数据集的 Description 属性。

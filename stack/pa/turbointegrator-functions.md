@@ -580,3 +580,17 @@
 示例：`CubeATTRSL('Product', 'Owner', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Product 多维数据集的 Owner 属性的字符串值。
+
+### DimensionAttrDelete
+
+`DimensionAttrDelete` 删除 TM1® 数据库的维度属性。
+
+语法：`DimensionAttrDelete(AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| AttrName | 要删除的维度属性的名称。 |
+
+示例：`DimensionAttrDelete('Description');`
+
+此示例删除 TM1 Server 上维度的 Description 属性。

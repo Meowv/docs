@@ -491,3 +491,26 @@
 示例：`CubeAttrDelete('Description');`
 
 此示例删除 TM1 Server 上多维数据集的 Description 属性。
+
+### CubeAttrInsert
+
+`CubeAttrInsert` 针对 TM1® Server 上的多维数据集创建新属性。此函数可以创建字符串属性、数值属性或别名属性。
+
+> 注意： 如果更新现有多维数据集属性，必须首先使用函数 `CubeAttrDelete` 删除现有属性。然后，可以通过 `CubeAttrInsert` 使用所需的更改来重新创建属性。
+
+> 要点： 如果尝试在未先删除该属性的情况下更新现有属性，那么插入会失败，且不会返回警告或错误。现有属性保持不变；不会更新，也不会被覆盖。
+
+语法：`CubeAttrInsert( PrevAttrName, NewAttrName, AttrType);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| PrevAttrName | 所创建属性的前置属性。如果无前置属性或者想要新属性成为多维数据集的第一个属性，请保留此参数为空。 |
+| NewAttrName | 想要分配给新的多维数据集属性的名称。 |
+| AttrType | 属性的类型。AttrType 参数有三种可能的值： |
+| | N - 创建数值属性。 |
+| | S - 创建字符串属性。 |
+| | A - 创建别名属性。 |
+
+语法：`CubeAttrInsert('Owner', 'Description', 'S');`
+
+此示例创建多维数据集的 Description 字符串属性。此属性在 Owner 属性之后插入。

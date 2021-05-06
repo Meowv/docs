@@ -646,8 +646,24 @@
 | String | 要分配维度属性的字符串。 |
 | DimensionName | 想要分配属性值的维度。 |
 | AttrName | 想要分配属性值的维度。 |
-| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。 |
+| LangLocaleCode | 此可选参数指定应用 String 的语言环境代码。 |
 
 示例：`DimensionAttrPutS('Prototype', 'Model', 'Description','fr');`
 
 此示例将字符串值 Prototype 分配给“型号”维度的 Description 属性以表示“法语”语言环境代码。
+
+### DimensionATTRNL
+
+`DimensionATTRNL` 返回某一指定维度相对于给定语言环境的数字属性值。
+
+语法：`DimensionATTRNL(DimName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| AttrName | 要检索其值的属性。此参数必须是维度的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`DimensionATTRNL('Plan_Business_Unit', 'Accounting_Code', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Plan_Business_Unit 维度的 Accounting_Code 属性的数字值。

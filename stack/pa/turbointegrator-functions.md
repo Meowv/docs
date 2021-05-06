@@ -391,3 +391,20 @@
 示例：`ChoreAttrNL('Import', 'Division_Code', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Import 杂项的 Division_Code 属性的数字值。
+
+### ChoreAttrPutN
+
+`ChoreAttrPutN` 用于向数值杂项属性赋值。
+
+语法：`ChoreAttrPutN(NumericValue, ChoreName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| NumericValue | 要赋予杂项属性的值。 |
+| ChoreName | 要为其赋予属性值的杂项。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。 |
+
+示例：`ChoreAttrPutN(7161994, 'Import', 'Division_Code','fr');`
+
+此示例针对“法语”语言环境代码，将值 7161994 赋予 Import 杂项的 Division_Code 属性。

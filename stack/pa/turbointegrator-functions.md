@@ -360,3 +360,18 @@
 示例：`ChoreAttrInsert('Owner', 'Description', 'S');`
 
 此示例创建杂项的 Description 字符串属性。此属性在 Owner 属性之后插入。
+
+### ChoreAttrN
+
+`ChoreAttrN` 用于返回指定杂项的数值属性。
+
+语法：`ChoreAttrN(ChoreName, AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| ChoreName | 有效的杂项名称。 |
+| AttrName | 要检索其值的属性。此参数必须是杂项的有效属性。 |
+
+示例：`ChoreAttrN('Import', 'Division_Code');`
+
+在此示例中，函数返回 Import 杂项的 Division_Code 属性的数字值。

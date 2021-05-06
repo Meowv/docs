@@ -425,3 +425,18 @@
 示例：`ChoreAttrPutS('Ricci', 'Import', 'Owner', 'fr');`
 
 此示例针对“法语”语言环境代码，将字符串值 Ricci 赋予 Import 杂项的 Owner 属性。
+
+### ChoreAttrS
+
+`ChoreAttrS` 用于返回指定杂项的字符串属性。
+
+语法：`ChoreAttrS(ChoreName, AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| ChoreName | 有效的杂项名称。 |
+| AttrName | 要检索其值的属性。此参数必须是杂项的有效属性。 |
+
+示例：`ChoreAttrS('Exchange_Rate_Updates', 'Owner');`
+
+在此示例中，函数返回 Exchange_Rate_Updates 杂项的 Owner 属性的字符串值。

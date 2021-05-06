@@ -323,3 +323,40 @@
 示例：`AttrPutS('Beige', 'Model', 'S Series 1.8L Sedan', 'InteriorColor');`
 
 此示例将字符串 Beige 赋给型号维度中 S Series 1.8L Sedan 的 InteriorColor 属性。
+
+### ChoreAttrDelete
+
+`ChoreAttrDelete` 删除 TM1® 数据库的杂项属性。
+
+语法：`ChoreAttrDelete(AttrName);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| AttrName | 要删除的杂项属性的名称。 |
+
+示例：`ChoreAttrDelete('Description');`
+
+此示例删除 TM1 Server 上杂项的 Description 属性。
+
+### ChoreAttrInsert
+
+`ChoreAttrInsert` 用于为 TM1® Server 上的杂项创建新属性。此函数可以创建字符串属性、数值属性或别名属性。
+
+> 注意： 如果是更新现有杂项属性，必须首先使用函数 `ChoreAttrDelete` 删除现有属性。然后，可以通过 `ChoreAttrInsert` 使用所需的更改来重新创建该属性。
+
+> 要点： 如果尝试在未先删除该属性的情况下更新现有属性，那么插入会失败，且不会返回警告或错误。现有属性保持不变；不会更新，也不会被覆盖。
+
+语法：`ChoreAttrInsert( PrevAttrName, NewAttrName, AttrType);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| PrevAttrName | 所创建属性的前置属性。如果无前置属性或者想要新属性成为杂项的第一个属性，请保留此参数为空。 |
+| NewAttrName | 要删除的杂项属性的名称。 |
+| AttrType | 属性的类型。AttrType 参数有三种可能的值： |
+| | N - 创建数值属性。 |
+| | S - 创建字符串属性。 |
+| | A - 创建别名属性。 |
+
+示例：`ChoreAttrInsert('Owner', 'Description', 'S');`
+
+此示例创建杂项的 Description 字符串属性。此属性在 Owner 属性之后插入。

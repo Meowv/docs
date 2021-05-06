@@ -617,3 +617,20 @@
 示例：`DimensionAttrInsert('', 'Description', 'S');`
 
 此示例创建维度的 Description 字符串属性。因为没有 PrevAttrName 参数，所以插入此参数作为 TM1 Server 上维度的第一个属性。
+
+### DimensionAttrPutN
+
+`DimensionAttrPutN` 将值分配给数字维度属性。
+
+语法：`DimensionAttrPutN(NumericValue, DimensionName, AttrName, [LocalLangCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| NumericValue | 想要分配给维度属性的值。 |
+| DimensionName | 想要分配属性值的维度。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。 |
+
+示例：`DimensionAttrPutN(07161994, 'Models', 'AccountingCode','fr');`
+
+此示例将值 07161994 分配给“型号”维度的 AccountingCode 属性以表示“法语”语言环境代码。

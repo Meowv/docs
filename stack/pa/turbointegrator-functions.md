@@ -634,3 +634,20 @@
 示例：`DimensionAttrPutN(07161994, 'Models', 'AccountingCode','fr');`
 
 此示例将值 07161994 分配给“型号”维度的 AccountingCode 属性以表示“法语”语言环境代码。
+
+### DimensionAttrPutS
+
+`DimensionAttrPutS` 将值分配给字符串维度属性。
+
+语法：`DimensionAttrPutS(String, DimensionName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| String | 要分配维度属性的字符串。 |
+| DimensionName | 想要分配属性值的维度。 |
+| AttrName | 想要分配属性值的维度。 |
+| LangLocaleCode | 此可选参数指定应用 NumericValue 的语言环境代码。 |
+
+示例：`DimensionAttrPutS('Prototype', 'Model', 'Description','fr');`
+
+此示例将字符串值 Prototype 分配给“型号”维度的 Description 属性以表示“法语”语言环境代码。

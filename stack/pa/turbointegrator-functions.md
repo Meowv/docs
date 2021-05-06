@@ -667,3 +667,19 @@
 示例：`DimensionATTRNL('Plan_Business_Unit', 'Accounting_Code', 'fr');`
 
 在此示例中，函数针对“法语”语言环境返回 Plan_Business_Unit 维度的 Accounting_Code 属性的数字值。
+
+### DimensionATTRSL
+
+`DimensionATTRSL` 返回某一指定维度相对于给定语言环境的字符串属性值。
+
+语法：`DimensionATTRSL(DimName, AttrName, [LangLocaleCode]);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| DimName | 有效的维度名称。 |
+| AttrName | 要检索其值的属性。此参数必须是维度的有效属性。 |
+| LangLocaleCode | 此可选参数指定要返回其值的语言环境代码。 |
+
+示例：`DimensionATTRSL('Plan_Business_Unit', 'Manager', 'fr');`
+
+在此示例中，函数针对“法语”语言环境返回 Plan_Business_Unit 维度的 Manager 属性的字符串值。

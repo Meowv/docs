@@ -408,3 +408,20 @@
 示例：`ChoreAttrPutN(7161994, 'Import', 'Division_Code','fr');`
 
 此示例针对“法语”语言环境代码，将值 7161994 赋予 Import 杂项的 Division_Code 属性。
+
+### ChoreAttrPutS
+
+`ChoreAttrPutS` 用于向字符串杂项属性赋值。
+
+语法：`ChoreAttrPutS(String, ChoreName, AttrName, [LangLocaleCode] );`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| String | 要赋予杂项属性的字符串。 |
+| ChoreName | 要为其赋予属性值的杂项。 |
+| AttrName | 要为其赋值的属性。 |
+| LangLocaleCode | 此可选参数指定应用 String 的语言环境代码。 |
+
+示例：`ChoreAttrPutS('Ricci', 'Import', 'Owner', 'fr');`
+
+此示例针对“法语”语言环境代码，将字符串值 Ricci 赋予 Import 杂项的 Owner 属性。

@@ -594,3 +594,26 @@
 示例：`DimensionAttrDelete('Description');`
 
 此示例删除 TM1 Server 上维度的 Description 属性。
+
+### DimensionAttrInsert
+
+`DimensionAttrInsert` 针对 TM1® Server 上的维度创建新属性。 此函数可以创建字符串属性、数值属性或别名属性。
+
+> 注意： 如果更新现有维度属性，必须首先使用函数 `DimensionAttrDelete` 删除现有属性。然后，可以通过 `DimensionAttrInsert` 使用所需的更改来重新创建属性。
+
+> 要点： 如果尝试在未先删除该属性的情况下更新现有属性，那么插入会失败，且不会返回警告或错误。现有属性保持不变；不会更新，也不会被覆盖。
+
+语法：`DimensionAttrInsert( PrevAttrName, NewAttrName, AttrType);`
+
+| 参数 | 描述 |
+| ------- | ------- |
+| PrevAttrName | 所创建属性的前置属性。如果无前置属性或者想要新属性成为维度的第一个属性，请保留此参数为空。 |
+| NewAttrName | 要分配给新维度属性的名称。 |
+| AttrType | 属性的类型。AttrType 参数有三种可能的值： |
+| | N - 创建数值属性。 |
+| | S - 创建字符串属性。 |
+| | A - 创建别名属性。 |
+
+示例：`DimensionAttrInsert('', 'Description', 'S');`
+
+此示例创建维度的 Description 字符串属性。因为没有 PrevAttrName 参数，所以插入此参数作为 TM1 Server 上维度的第一个属性。

@@ -553,7 +553,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
-                '2021-mingyuanyun-summary',
+                '2021-mingyuanyun-probationary-period-summary',
                 '2020-summary',
                 'from-college-to-work',
                 'COVID-19-battle-summary',

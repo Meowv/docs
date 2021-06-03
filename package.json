@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@vssue/api-github-v3": "^1.4.7",
-    "@vssue/vuepress-plugin-vssue": "^1.4.6",
+    "@vssue/vuepress-plugin-vssue": "^0.10.0",
     "moment": "^2.27.0",
     "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-reading-progress": "^1.0.10"
@@ -15,7 +15,7 @@
     "@vuepress/plugin-back-to-top": "^1.8.2",
     "@vuepress/plugin-medium-zoom": "^1.8.2",
     "@vuepress/plugin-nprogress": "^1.8.2",
-    "vuepress": "^1.8.2",
+    "vuepress": "^0.14.11",
     "vuepress-plugin-cursor-effects": "^1.0.0",
     "vuepress-plugin-smooth-scroll": "0.0.9"
   },

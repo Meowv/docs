@@ -553,6 +553,12 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2021.06.04-summary',
+                '2021.05.21-summary',
+                '2021.05.07-summary',
+                '2021.04.23-summary',
+                '2021.04.09-summary',
+                '2021.03.26-summary',
                 '2021-mingyuanyun-probationary-period-summary',
                 '2020-summary',
                 'from-college-to-work',

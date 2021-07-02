@@ -553,6 +553,8 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2021.07.02-summary',
+                '2021.06.18-summary',
                 '2021.06.04-summary',
                 '2021.05.21-summary',
                 '2021.05.07-summary',

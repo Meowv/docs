@@ -531,8 +531,7 @@ module.exports = {
                 {
                     title: 'Planning Analytics',
                     children: [
-                        'pa/rules-functions',
-                        'pa/turbointegrator-functions'
+                        'pa/rules-functions'
                     ]
                 },
                 {

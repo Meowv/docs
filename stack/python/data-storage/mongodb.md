@@ -2,7 +2,7 @@
 
 ## MongoDB 原生语句
 
-[MongoDB 常用命令](../../stack/storage/mongodb/mongodb-shell.md)
+[MongoDB 常用命令](../../storage/mongodb/mongodb-shell.md)
 
 ## 安装pymongo
 

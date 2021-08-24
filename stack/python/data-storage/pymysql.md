@@ -2,7 +2,7 @@
 
 ## win下安装MySQL
 
-详细可参考 [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](../../stack/storage/mysql/mysql-install.md)
+详细可参考 [Windows下MySQL安装流程，8.0以上版本ROOT密码报错及修改](../../storage/mysql/mysql-install.md)
 
 ## 安装驱动程序
 

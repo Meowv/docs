@@ -119,10 +119,6 @@ module.exports = {
                 ]
             },
             {
-                text: '🎈Python',
-                link: '/python/'
-            },
-            {
                 text: '🍺技术栈',
                 link: '/stack/'
             },
@@ -138,10 +134,6 @@ module.exports = {
                         link: 'https://meowv.com/'
                     },
                     {
-                        text: 'docs.meowv.com',
-                        link: 'https://docs.meowv.com/'
-                    },
-                    {
                         text: '阿星Plus - 博客园',
                         link: 'https://www.cnblogs.com/meowv/'
                     },
@@ -152,14 +144,6 @@ module.exports = {
                     {
                         text: '阿星Plus的微博',
                         link: 'https://weibo.com/Tencentgou/'
-                    },
-                    {
-                        text: 'api.meowv.com',
-                        link: 'https://api.meowv.com/'
-                    },
-                    {
-                        text: 'NuGet Gallery | qix',
-                        link: 'https://www.nuget.org/profiles/qix/'
                     }
                 ]
             }
@@ -197,49 +181,6 @@ module.exports = {
                 "blazor-bestpractice-9",
                 "publish-blog"
             ],
-            '/python/': [
-                {
-                    title: '网络请求',
-                    collapsable: false,
-                    children: [
-                        'network-request/http',
-                        'network-request/urllib',
-                        'network-request/requests'
-                    ]
-                },
-                {
-                    title: '数据提取',
-                    collapsable: false,
-                    children: [
-                        'data-extraction/xpath',
-                        'data-extraction/lxml',
-                        'data-extraction/beautifulsoup',
-                        'data-extraction/regex',
-                        'data-extraction/python-re'
-                    ]
-                },
-                {
-                    title: '数据存储',
-                    collapsable: false,
-                    children: [
-                        'data-storage/json',
-                        'data-storage/csv',
-                        'data-storage/pymysql',
-                        'data-storage/mongodb'
-                    ]
-                },
-                {
-                    title: '爬虫进阶',
-                    collapsable: false,
-                    children: [
-                        'spider/multithreading',
-                        'spider/selenium',
-                        'spider/tesseract',
-                        'spider/scrapy',
-                        'spider/scrapy-redis'
-                    ]
-                }
-            ],
             '/stack/': [
                 {
                     title: '.NET Core',
@@ -274,6 +215,48 @@ module.exports = {
                     title: 'Blazor',
                     children: [
                         'blazor/gomoku-games-based-on-blazor'
+                    ]
+                },
+                {
+                    'title': 'Python',
+                    children: [
+                        {
+                            title: '网络请求',
+                            children: [
+                                'python/network-request/http',
+                                'python/network-request/urllib',
+                                'python/network-request/requests'
+                            ]
+                        },
+                        {
+                            title: '数据提取',
+                            children: [
+                                'python/data-extraction/xpath',
+                                'python/data-extraction/lxml',
+                                'python/data-extraction/beautifulsoup',
+                                'python/data-extraction/regex',
+                                'python/data-extraction/python-re'
+                            ]
+                        },
+                        {
+                            title: '数据存储',
+                            children: [
+                                'python/data-storage/json',
+                                'python/data-storage/csv',
+                                'python/data-storage/pymysql',
+                                'python/data-storage/mongodb'
+                            ]
+                        },
+                        {
+                            title: '爬虫进阶',
+                            children: [
+                                'python/spider/multithreading',
+                                'python/spider/selenium',
+                                'python/spider/tesseract',
+                                'python/spider/scrapy',
+                                'python/spider/scrapy-redis'
+                            ]
+                        }
                     ]
                 },
                 {

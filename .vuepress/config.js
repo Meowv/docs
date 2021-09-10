@@ -535,6 +535,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2021.09.10-summary',
                 '2021.08.13-summary',
                 '2021.07.30-summary',
                 '2021.07.16-summary',

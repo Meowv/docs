@@ -528,7 +528,7 @@ module.exports = {
                         'other/zabbix',
                         'other/batch-rename-with-powershell',
                         'other/revoke-wechart-msg-patcher',
-                        'other/visual-studio-2019-keys',
+                        'other/visual-studio-keys',
                         'other/windows10-run-android-emulator-bsod-solution',
                         'other/remove-windows-shortcuts'
                     ]

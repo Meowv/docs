@@ -1,52 +1,50 @@
-const head = [
-    ['script', {}, `var _mtac = {"senseQuery":1};(function() { var mta = document.createElement("script");mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";mta.setAttribute("name", "MTAH5");mta.setAttribute("sid", "500727760");mta.setAttribute("cid", "500727761");var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(mta, s); })();`],
-    ['script', { src: '/live2d/L2Dwidget.min.js' }],
-    ['script', {}, `
-        const models = [
-            '/live2d/live2d-widget-model-epsilon2_1/assets/Epsilon2.1.model.json',
-            '/live2d/live2d-widget-model-haru/01/assets/haru01.model.json',
-            '/live2d/live2d-widget-model-haru/02/assets/haru02.model.json',
-            '/live2d/live2d-widget-model-haruto/assets/haruto.model.json',
-            '/live2d/live2d-widget-model-koharu/assets/koharu.model.json',
-            '/live2d/live2d-widget-model-hijiki/assets/hijiki.model.json',
-            '/live2d/live2d-widget-model-tororo/assets/tororo.model.json',
-            '/live2d/live2d-widget-model-izumi/assets/izumi.model.json',
-            '/live2d/live2d-widget-model-miku/assets/miku.model.json',
-            '/live2d/live2d-widget-model-shizuku/assets/shizuku.model.json',
-            '/live2d/live2d-widget-model-wanko/assets/wanko.model.json',
-            '/live2d/live2d-widget-model-z16/assets/z16.model.json'
-        ];
-        L2Dwidget.init({
-            "model": {
-                jsonPath: models[parseInt(Math.random() * (models.length))]
-            },
-            "display": {
-                "position": "left",
-                "width": 150,
-                "height": 210,
-                "hOffset": 5,
-                "vOffset": 5,
-                "superSample": 1,
-            },
-            "mobile": {
-                "scale": 1,
-                "show": true,
-                "motion": true,
-            },
-            "react": {
-                "opacityDefault": .5,
-                "opacityOnHover": .2
-            }
-        });
-    `]
-];
 module.exports = {
     title: '📖Documents',
     description: 'This is a personal document library for development work',
     base: '/',
     host: '127.0.0.1',
     port: '90',
-    head: head,
+    head: [
+        ['script', { src: '/live2d/L2Dwidget.min.js' }],
+        ['script', {}, `
+            const models = [
+                '/live2d/live2d-widget-model-epsilon2_1/assets/Epsilon2.1.model.json',
+                '/live2d/live2d-widget-model-haru/01/assets/haru01.model.json',
+                '/live2d/live2d-widget-model-haru/02/assets/haru02.model.json',
+                '/live2d/live2d-widget-model-haruto/assets/haruto.model.json',
+                '/live2d/live2d-widget-model-koharu/assets/koharu.model.json',
+                '/live2d/live2d-widget-model-hijiki/assets/hijiki.model.json',
+                '/live2d/live2d-widget-model-tororo/assets/tororo.model.json',
+                '/live2d/live2d-widget-model-izumi/assets/izumi.model.json',
+                '/live2d/live2d-widget-model-miku/assets/miku.model.json',
+                '/live2d/live2d-widget-model-shizuku/assets/shizuku.model.json',
+                '/live2d/live2d-widget-model-wanko/assets/wanko.model.json',
+                '/live2d/live2d-widget-model-z16/assets/z16.model.json'
+            ];
+            L2Dwidget.init({
+                "model": {
+                    jsonPath: models[parseInt(Math.random() * (models.length))]
+                },
+                "display": {
+                    "position": "left",
+                    "width": 150,
+                    "height": 210,
+                    "hOffset": 5,
+                    "vOffset": 5,
+                    "superSample": 1,
+                },
+                "mobile": {
+                    "scale": 1,
+                    "show": true,
+                    "motion": true,
+                },
+                "react": {
+                    "opacityDefault": .5,
+                    "opacityOnHover": .2
+                }
+            });
+        `]
+    ],
     plugins: [
         'cursor-effects',
         '@vuepress/back-to-top',
@@ -535,6 +533,9 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2021-summary',
+                '2021.12.31-summary',
+                '2021.12.17-summary',
                 '2021.12.03-summary',
                 '2021.11.19-summary',
                 '2021.11.05-summary',

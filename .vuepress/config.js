@@ -555,6 +555,7 @@ module.exports = {
                 '2021.04.23-summary',
                 '2021.04.09-summary',
                 '2021.03.26-summary',
+                '2021-daily-summary',
                 '2020-summary',
                 'from-college-to-work',
                 'COVID-19-battle-summary',

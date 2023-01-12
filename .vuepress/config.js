@@ -533,6 +533,7 @@ module.exports = {
                 },
             ],
             '/summary/': [
+                '2022-summary',
                 '2021-summary',
                 '2021.12.31-summary',
                 '2021.12.17-summary',
